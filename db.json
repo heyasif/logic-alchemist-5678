@@ -1,0 +1,156 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "John Doe",
+      "email": "john.doe@example.com",
+      "mobileNumber": "+91-1234567890",
+      "gender": "Male",
+      "password": "hashed_password"
+    },
+    {
+      "id": 2,
+      "name": "Jane Smith",
+      "email": "jane.smith@example.com",
+      "mobileNumber": "+91-0987654321",
+      "gender": "Female",
+      "password": "hashed_password"
+    }
+  ],
+
+  "orders": [
+    {
+      "id": 1,
+      "userId": 1,
+      "items": [
+        {
+          "productId": 1,
+          "quantity": 1,
+          "price": 200.0
+        },
+        {
+          "productId": 2,
+          "quantity": 1,
+          "price": 35.0
+        }
+      ],
+      "total": 235.0,
+      "status": "Completed",
+      "orderDate": "2024-02-21",
+      "address": {
+        "firstName": "John",
+        "lastName": "Doe",
+        "line1": "123 Maple Street",
+        "line2": "Apt 456",
+        "city": "New York",
+        "state": "NY",
+        "zipCode": "10001",
+        "country": "USA"
+      }
+    }
+  ],
+
+  "products": {
+    "electronics": [
+      {
+        "productId": 101,
+        "name": "Smartphone",
+        "category": "Electronics",
+        "price": 599.99,
+        "description": "A powerful smartphone with advanced features."
+      },
+      {
+        "productId": 102,
+        "name": "Laptop",
+        "category": "Electronics",
+        "price": 899.99,
+        "description": "A high-performance laptop for work and entertainment."
+      },
+      {
+        "productId": 119,
+        "name": "Wireless Mouse",
+        "category": "Electronics",
+        "price": 29.99,
+        "description": "Ergonomic wireless mouse for efficient computing."
+      },
+      {
+        "productId": 120,
+        "name": "Bluetooth Speaker",
+        "category": "Electronics",
+        "price": 79.99,
+        "description": "Portable Bluetooth speaker for music on the go."
+      }
+    ],
+    "clothing": [
+      {
+        "productId": 201,
+        "name": "T-Shirt",
+        "category": "Clothing",
+        "price": 19.99,
+        "description": "A comfortable and stylish t-shirt for everyday wear."
+      },
+      {
+        "productId": 202,
+        "name": "Jeans",
+        "category": "Clothing",
+        "price": 39.99,
+        "description": "Classic denim jeans for a timeless look."
+      },
+      {
+        "productId": 219,
+        "name": "Hoodie",
+        "category": "Clothing",
+        "price": 49.99,
+        "description": "Cozy hoodie for casual outings."
+      },
+      {
+        "productId": 220,
+        "name": "Dress",
+        "category": "Clothing",
+        "price": 69.99,
+        "description": "Elegant dress for special occasions."
+      }
+    ],
+    "books": [
+      {
+        "productId": 301,
+        "name": "Novel",
+        "category": "Books",
+        "price": 12.99,
+        "description": "A captivating novel that will keep you hooked till the end."
+      },
+      {
+        "productId": 302,
+        "name": "Cookbook",
+        "category": "Books",
+        "price": 24.99,
+        "description": "A collection of delicious recipes from around the world."
+      },
+      {
+        "productId": 319,
+        "name": "Biography",
+        "category": "Books",
+        "price": 16.99,
+        "description": "Inspirational biography of a notable figure."
+      },
+      {
+        "productId": 320,
+        "name": "Art Book",
+        "category": "Books",
+        "price": 29.99,
+        "description": "Beautifully illustrated book exploring the world of art."
+      }
+    ]
+  },
+
+  "payments": [
+    {
+      "orderId": 1,
+      "userId": 1,
+      "method": "Credit Card",
+      "amount": 235.0,
+      "status": "Paid",
+      "paymentDate": "2024-02-21"
+    }
+  ]
+}
