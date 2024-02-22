@@ -4,7 +4,7 @@ import Home from '../Rantu/Home';
 import Error from '../Rantu/Error';
 import Account from '../Asif/Account';
 import Cart from '../Raushan/Cart';
-import SinglePage from '../sujeet/singlePage';
+import SinglePage from '../sujeet/SinglePage';
 
 export default function AllRoutes(){
 

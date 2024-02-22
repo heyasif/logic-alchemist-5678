@@ -5,7 +5,7 @@ import './App.css'
 import Navbar from './Rantu/Navbar'
 
 
-import Login from './Raushan/login'
+import Login from './Raushan/Login'
 
 
 
