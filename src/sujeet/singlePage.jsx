@@ -1,4 +1,4 @@
-// import "./"
+import '../App.css'
 
 const SinglePage =()=>{
     return(
