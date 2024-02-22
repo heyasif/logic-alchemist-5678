@@ -1,18 +1,41 @@
 import Electronics from "./Electronics";
-import HeroSection from "./HeroSection";
-import HomeAppliances from "./HomeAppliances";
+import { useEffect, useState } from "react";
+import productsFetch from "./actions/ApiCall";
+import Clothings from "./Clothings";
+import Books from "./AllRoues/Books";
+import Footer from "./Footer";
+
 
 
 
 const Home = () => {
-    
+    // const dispatch = useDispatch();
+
+    const [electronicsProducts, setElectronicsProducts] = useState([]);
+    const [clothingsProducts, setClothingsProducts] = useState([]);
+    const [booksProducts, setBooksProducts] = useState([]);
+
+    useEffect(() => {
+        productsFetch().then (res => {
+            setElectronicsProducts(res.data.electronics);
+            setClothingsProducts(res.data.clothing);
+            setBooksProducts(res.data.books);
+        });
+    },[])
+
+    console.log(electronicsProducts);
+    console.log(clothingsProducts);
+    console.log(booksProducts);
 
     return (
         <div>
-            <h1>Home</h1>
-            <HeroSection />
-            <Electronics />
-            <HomeAppliances />
+            <h1>Welcome Home Consumer!</h1>
+            {/* <HeroSection /> */}
+             {/* <HomeAppliances /> */}
+              <Electronics electronicsProducts={electronicsProducts} />
+              <Clothings clothingsProducts={clothingsProducts} />
+              <Books booksProducts={booksProducts} />
+              <Footer/>
         </div>
     )
 
