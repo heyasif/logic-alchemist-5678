@@ -5,14 +5,23 @@ import './App.css'
 import Navbar from './Rantu/Navbar'
 
 
+import Login from './Raushan/login'
+
+
+
 function App() {
 
 
   return (
     <>
+    <Signin />
+
     <Navbar />
+
+     <Home />
     <AllRoutes />
-     {/* <Home /> */}
+
+
     </>
   )
 }
