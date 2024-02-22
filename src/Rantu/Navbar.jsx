@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 
 
@@ -5,8 +6,11 @@ export default function Navbar(){
 
     
     return(
-        <div>
-            <h1> Navbar </h1>
+        <div style={{display:"flex", justifyContent:"space-around"}} >
+            <Link to ="/" >Home</Link>
+            <Link to ="/account" >Account</Link>
+            <Link to ="/products" >Products</Link>
+            <Link to ="/login" >Login</Link>
         </div>
     )
 }

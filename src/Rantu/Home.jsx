@@ -2,7 +2,7 @@ import Electronics from "./Electronics";
 import { useEffect, useState } from "react";
 import productsFetch from "./actions/ApiCall";
 import Clothings from "./Clothings";
-import Books from "./AllRoues/Books";
+import Books from "./Books";
 import Footer from "./Footer";
 
 
