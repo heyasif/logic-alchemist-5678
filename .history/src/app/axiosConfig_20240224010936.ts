@@ -1,6 +1,6 @@
 import axios from "axios";
 const axiosConfig = axios.create({
-  baseURL: "https://epicbazaar.onrender.com/",
+  baseURL: "https://fakestoreapi.com/",
 });
 
 export default axiosConfig;
