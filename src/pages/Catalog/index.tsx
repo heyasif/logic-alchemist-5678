@@ -37,6 +37,7 @@ const Catalog = () => {
       });
       dispatch(getCategory(pathUrl[0].url.toLowerCase()));
     } else {
+      // dispatch(getProducts());
       dispatch(getProducts());
     }
   }, [id]);
@@ -65,6 +66,7 @@ const Catalog = () => {
               price={product.price}
               category={product.category}
               description={product.description}
+              // image={product.image}
               image={product.image}
             />
           );
