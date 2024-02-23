@@ -3,10 +3,13 @@
   z-index: $z-nav;
   color: $c-secondary;
   left: 50%;
-  padding: 0.5rem 0 0.5rem 0;
+  padding: 0.5rem 60px;
   transform: translateX(-50%);
-  width: 98%;
+  width: 100%;
+  height: 75px;
   transition: all ease 0.15s;
+  background-color: #7579E7;
+ 
 
   @media (min-width: 768px) {
     color: $c-primary;
