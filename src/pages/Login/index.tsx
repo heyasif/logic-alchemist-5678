@@ -1,105 +1,68 @@
-import styles from "./index.module.scss";
-import { useNavigate } from "react-router";
-import { FormEvent, useEffect } from "react";
-import { getUser, login, logout } from "../../features/auth/authSlice";
-import { useAppDispatch, useAppSelector } from "../../app/hooks";
-import Spinner from "../../components/components/Spinner";
+import React, { useEffect, useState } from 'react'
+
+
+ import './loginpage.css'
+
+
 
 const LoginPage = () => {
-  const { user, token, isLoading } = useAppSelector((state) => state.auth);
-  const navigate = useNavigate();
-  const dispatch = useAppDispatch();
+    const[username,setUsername]=useState('')
+    const [password,setPassword]=useState('');
 
-  useEffect(() => {
-    if (user === null && token) {
-      const userId = localStorage.getItem("user");
-      dispatch(getUser(Number(userId)));
+    
+    const[data,setData]=useState([]);
+    console.log(data);
+    const handleLogin=(e)=>{
+      e.preventDefault();
+      useEffect(()=>{
+        try{
+          const res=  fetch('https://epicbazaar.onrender.com/users')
+          const datas=  res.json();
+          setData(datas)
+        }
+        catch(err){
+          console.log(err);
+        }
+       
+      },[])
     }
-  }, [token, user, dispatch]);
+  
+   
+    
+ 
+   
+    return (
+        <div className='authPage'>
+          
 
-  const formSubmitHandler = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+            <div className='authcont'>
+                <img src='https://images.unsplash.com/photo-1495480137269-ff29bd0a695c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1172&q=80'
+                    alt='login' />
 
-    const data = new FormData(e.currentTarget);
-    const username = data.get("username") as string;
-    const password = data.get("password") as string;
+                <form className='authform' onSubmit={handleLogin}>
+                    <h1>Login</h1>
+                    <div className='formgroup'>
+                        <label htmlFor='email'>Email</label>
+                        <input value={registration.email} type='email' id='email' name='email' onChange={(e)=>setUsername(e.target.value)}  />
+                    </div>
 
-    await dispatch(login({ username, password }));
-    if (user && token) {
-      navigate("/");
-      console.log(user);
-    }
-  };
+                    <div className='formgroup'>
+                        <label htmlFor='password'>Password</label>
+                        <input type='password' value={registration.password} id='password' name='password' onChange={(e)=>{setPassword(e.target.value)}} />
+                    </div>
 
-  const logoutHandler = async () => {
-    await dispatch(logout());
-    navigate("/");
-  };
-
-  if (isLoading) return <Spinner />;
-
-  return (
-    <section className={styles.section}>
-      <div className={`${styles.container} main-container`}>
-        {user !== null ? (
-          <div className={styles.profile}>
-            <div className={styles.profileHeader}>
-              <div className={styles.profileInfo}>
-                <span className={styles.name}>
-                  Name: {`${user?.name.firstname} ${user?.name.lastname}`}
-                </span>
-                <span>
-                  Email: <strong>{user?.email}</strong>
-                </span>
-                <span>
-                  Location: <strong>{user?.address.city}</strong>
-                </span>
-                <span>
-                  Phone: <strong>{user?.address.number}</strong>
-                </span>
-              </div>
+                  
+                        
+                    
+                 
+                      
+                        <button className='btn'>Login</button>
+                 
+                   
+                </form>
             </div>
-            <button
-              type="button"
-              className={styles.logoutBtn}
-              onClick={() => logoutHandler()}
-            >
-              Logout
-            </button>
-          </div>
-        ) : (
-          <div className={styles.loginContainer}>
-            <h2>Login</h2>
-            <form action="/login" onSubmit={formSubmitHandler}>
-              <div className={styles.formItem}>
-                <div className={styles.formField}>
-                  <input type="text" name="username" placeholder="Username:" />
-                </div>
-                <p className={styles.apiSignExample}>
-                  demo username: <strong>mor_2314</strong>
-                </p>
-              </div>
-              <div className={styles.formItem}>
-                <div className={styles.formField}>
-                  <input
-                    type="password"
-                    name="password"
-                    placeholder="Password:"
-                  />
-                </div>
-                <p className={styles.apiSignExample}>
-                  demo password: <strong>83r5^_</strong>
-                </p>
-              </div>
-              <div className={styles.formSubmit}>
-                <button type="submit">Sign In</button>
-              </div>
-            </form>
-          </div>
-        )}
-      </div>
-    </section>
-  );
-};
+        </div>
+    )
+}
 
-export default LoginPage;
+export default LoginPage
