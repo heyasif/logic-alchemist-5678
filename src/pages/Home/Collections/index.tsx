@@ -13,7 +13,7 @@ const Collections = () => {
           <div className={styles.collectionContainer}>
             {collectionImages.map((item, id) => {
               return (
-                <Link to={item.link} className={styles["div" + (id + 1)]}>
+                <Link key={id} to={item.link} className={styles["div" + (id + 1)]}>
                   <img
                     srcSet={item.path}
                     className={`${styles.image}`}

@@ -40,21 +40,25 @@ const Navbar: React.FC<NavBarProps> = ({ handleShow }) => {
 
     return () => window.removeEventListener("scroll", resizeHeaderOnScroll);
   }, []);
+
+  console.log(hasScrolled);
+  console.log(navData);
+  
+  
+
   const navStyles = hasScrolled
     ? `${styles.nav} ${styles.hasScrolled}`
     : styles.nav;
 
   return (
-    <nav className={navStyles}>
+    <nav className={navStyles} style={{width: "100%"}} >
       <div className={styles.container_bottom}>
-        <Link to="/" className={styles.title}>
-          Flowy Cart
-        </Link>
-        <ul className={styles.links}>
-          {navData.map((option) => {
+        <img style={{ width: "50px", height: "50px", borderRadius: "50%" }} src="https://pics.craiyon.com/2023-06-13/0fafb09f06ec4bfdb40cbb9c103cd7d6.webp" alt="logo" />
+        <ul className={styles.links} style={{margin: "auto 0"}} >
+          {navData.map((option, index) => {
             return (
-              <li>
-                <NavLink to={`/catalog/${option.name}`} className={styles.link}>
+              <li key={index} style={{fontSize: "20px"}}>
+                <NavLink to={`/catalog/${option.name}`} className={styles.link} style={{color: "white",  fontFamily: "Montserrat"}} >
                   {option.name}
                 </NavLink>
               </li>

@@ -43,9 +43,9 @@ const QuickView = () => {
         <p className={styles.section_title_top}>Quick View</p>
         <div className={styles.categories}>
           <div className={styles.buttonContainer}>
-            {navData?.map((item) => {
+            {navData?.map((item, index) => {
               return (
-                <div className={styles.button}>
+                <div className={styles.button} key={index}>
                   <input
                     type="radio"
                     id={item.name}

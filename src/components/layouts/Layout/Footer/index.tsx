@@ -1,90 +1,65 @@
-import { Link, useLocation } from "react-router-dom";
-import { useMediaQuery } from "react-responsive";
-import {
-  FaInstagram,
-  FaTwitterSquare,
-  FaTiktok,
-  FaFacebookF,
-  FaYoutube,
-} from "react-icons/fa";
 
-import styles from "./index.module.scss";
 
 const Footer = () => {
-  const location = useLocation();
 
-  const isBigScreen = useMediaQuery({
-    query: "(min-width: 1024px)",
-  });
-
-  const isCollectionPage = location.pathname.includes("collections");
+  
 
   return (
-    <footer
-      className={`${styles.footer} ${
-        isCollectionPage && isBigScreen
-          ? styles.is_collection_page_b
-          : styles.is_collection_page_s
-      }`}
-    >
-      <div className={styles.container}>
-        <div className={styles.profile}>
-          <div className={styles.nav_wrapper}>
-            <div className={styles.nav_title}>Flowy Cart</div>
-            <div className={styles.subTitle}>
-              Unleash your fashion. Find your flow.
+    <footer  style={{width:"100%", height:"auto", padding:"10px", border: "1px solid black"}} >
+         <div style={{color:"black",width: "50%", margin:"0 auto", height:"70px", display:"flex", justifyContent:"space-around", alignItems:"center", paddingBottom:"10px"}} >
+            <i style={{fontSize:"25px", borderRadius:"50%", border: "2px solid black", height:"40px", width:"40px", display:"flex", justifyContent:"center", alignItems:"center"}} class="fa-brands fa-facebook"></i>
+            <i style={{fontSize:"25px", borderRadius:"50%", border: "2px solid black", height:"40px", width:"40px", display:"flex", justifyContent:"center", alignItems:"center"}} class="fa-brands fa-instagram"></i>
+            <i style={{fontSize:"25px", borderRadius:"50%", border: "2px solid black", height:"40px", width:"40px", display:"flex", justifyContent:"center", alignItems:"center"}} class="fa-brands fa-square-x-twitter"></i>
+            <i style={{fontSize:"25px", borderRadius:"50%", border: "2px solid black", height:"40px", width:"40px", display:"flex", justifyContent:"center", alignItems:"center"}} class="fa-brands fa-linkedin"></i>
+            <i style={{fontSize:"25px", borderRadius:"50%", border: "2px solid black", height:"40px", width:"40px", display:"flex", justifyContent:"center", alignItems:"center"}} class="fa-brands fa-youtube"></i>
             </div>
-            <div className={styles.socials_wrapper}>
-              <div className={styles.socials}>
-                <a
-                  href="https://www.instagram.com"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <FaInstagram />
-                </a>
-                <a href="https://tiktok.com" target="_blank" rel="noreferrer">
-                  <FaTiktok />
-                </a>
-                <a href="https://twitter.com" target="_blank" rel="noreferrer">
-                  <FaTwitterSquare />
-                </a>
-                <a href="https://facebook.com" target="_blank" rel="noreferrer">
-                  <FaFacebookF />
-                </a>
-                <a href="https://youtube.com" target="_blank" rel="noreferrer">
-                  <FaYoutube />
-                </a>
-              </div>
+
+            <hr/>
+
+            <div style={{display:"flex", justifyContent:"space-around", color:"black", padding: "20px 0"}} >
+                <div style={{textAlign:"left"}} >
+                    <h3 style={{fontWeight:"bold"}}>ABOUT</h3>
+                    <p style={{fontWeight:"normal"}}>Contact Us</p>
+                    <p style={{fontWeight:"normal"}}>About Us</p>
+                    <p style={{fontWeight:"normal"}}>Careers</p>
+                    <p style={{fontWeight:"normal"}}>EpicBazaar Story</p>
+                    <p style={{fontWeight:"normal"}}>Corporate Information</p>
+                </div>
+
+                <div style={{textAlign:"left"}}>
+                     <h3 style={{fontWeight:"bold"}}>CONSUMER POLICY</h3>
+                     <p style={{fontWeight:"normal"}}>Cancellation & Returns</p>
+                     <p style={{fontWeight:"normal"}}>Terms of Use</p>
+                     <p style={{fontWeight:"normal"}}>Security</p>
+                     <p style={{fontWeight:"normal"}}>Privacy</p>
+                     <p style={{fontWeight:"normal"}}>EPR Compliance</p>
+                </div>
+
+                <div style={{textAlign:"left"}}>
+                    <h3 style={{fontWeight:"bold"}}>SUPPORT</h3>
+                    <p style={{fontWeight:"normal"}}>Payments</p>
+                    <p style={{fontWeight:"normal"}}>Shipping</p>
+                    <p style={{fontWeight:"normal"}}>Cancellation</p>
+                    <p style={{fontWeight:"normal"}}>FAQ</p>
+                    <p style={{fontWeight:"normal"}}>Report Infringement</p>
+                </div>
+
+                <div style={{textAlign:"left"}}> 
+                    <h3 style={{fontWeight:"bold"}} >COMPANY ADDRESS</h3>
+                    <p style={{fontWeight:"normal"}}>EpicBazaar Private Limited</p>
+                    <p style={{fontWeight:"normal"}}>Buildings Alyssa, Begonia</p>
+                    <p style={{fontWeight:"normal"}}>Clove Embassy Tech Village</p>
+                    <p style={{fontWeight:"normal"}}>Bengaluru, 560103</p>
+                    <p style={{fontWeight:"normal"}}>Karnataka, India</p>
+                </div>
             </div>
-            <div className={styles.subTitle}>
-              All rights reserved.©️ 2024 Flowy Cart
+
+            <hr/>
+
+            <div style={{textAlign:"center", padding:"10px 0"}} > 
+                <h3>© 2024 EpicBazaar. All rights reserved.</h3>
             </div>
-          </div>
-        </div>
-        <div className={styles.sitemap}>
-          <div className={styles.nav_wrapper}>
-            <h4 className={styles.nav_title}>Help</h4>
-            <ul className={styles.nav}>
-              <li>
-                <Link to="/">Help Center</Link>
-              </li>
-              <li>
-                <Link to="/">Contact Us</Link>
-              </li>
-              <li>
-                <Link to="/">Shipping Info</Link>
-              </li>
-              <li>
-                <Link to="/">Track My Order</Link>
-              </li>
-              <li>
-                <Link to="/">Returns & Exchanges</Link>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
+       
     </footer>
   );
 };
