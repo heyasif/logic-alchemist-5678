@@ -10,10 +10,9 @@ const Cart = () => {
   const navigate = useNavigate();
 
   const subtotal = items.reduce((acc, obj) => acc + obj.price, 0).toFixed(2);
-  const total = (parseFloat(subtotal) + 10).toFixed(2); // Including a fictional shipping and tax for demonstration purposes
+  const total = (parseFloat(subtotal) + 10).toFixed(2);
 
   const handleCheckout = () => {
-    // Pass items to the payment page when navigating
     navigate("/payment", { state: { items: items } });
   };
 
@@ -21,9 +20,10 @@ const Cart = () => {
     <div>
       {items.length < 1 && (
         <div className="flex flex-wrap max-w-7xl mx-auto my-4">
-          <div className="w-full sm:w-2/2 md:w-2/2 xl:w-5/5 p-4 h-[500px] my-auto">
+          <div className="w-full sm:w-2/2 md:w-2/2 xl:w-5/5 p-4 h-[500px] my-auto ">
             <div className={styles.cardBg}>
-              <ShoppingCartIcon className="h-40 w-40 mx-auto mt-10" />
+              <ShoppingCartIcon className="h-40 w-40 mx-auto mt-10  " />
+              
               <p className="text-xl font-extralight tracking-widest text-center pt-6">
                 There are no products in your cart.
               </p>
@@ -34,7 +34,7 @@ const Cart = () => {
                 <div className={styles.continueButton}>
                   <button className={styles.button}>
                     <div className="flex flex-col self-center">
-                      <span className={styles.buttonText}>
+                      <span className="text-white ">
                         Continue Shopping
                       </span>
                     </div>
@@ -47,8 +47,8 @@ const Cart = () => {
       )}
 
       {items.length > 0 && (
-        <div className="flex flex-wrap max-w-7xl mx-auto my-4">
-          <div className="flex flex-col flex-1">
+        <div className="flex flex-wrap max-w-7xl mx-auto my-4 ">
+          <div className="flex flex-col flex-1 bg-sky-100 p-4 m-4">
             {items.map((item) => (
               <div
                 className="w-full sm:w-2/2 md:w-2/2 xl:w-5/5 p-4 my-auto"
@@ -57,7 +57,7 @@ const Cart = () => {
                 <div className={styles.bgCart}>
                   <div className="flex flex-row h-48">
                     <img
-                      className="w-32 my-auto p-4 object-contain"
+                      className="w-32 my-auto p-4 object-contain "
                       src={item.image}
                       alt="Cart Item"
                     />
@@ -85,28 +85,28 @@ const Cart = () => {
               </div>
             ))}
           </div>
-          <div className="w-full h-full sm:w-2/2 md:w-2/2 xl:w-1/5 p-4">
+          <div className="w-full h-full sm:w-2/2 md:w-2/2 xl:w-1/5 p-4 bg-slate-300 rounded-md m-8">
             <div className={styles.bgCart}>
-              <div className="flex flex-col p-4">
+              <div className="flex flex-col p-4 text-slate-800">
                 <span className="text-xl mb-4 font-semibold">
                   Order Summary
                 </span>
-                <span className="text-sm my-2 font-extralight flex">
+                <span className="text-sm my-2 font-extralight flex ">
                   Subtotal{" "}
-                  <span className="ml-auto font-normal">$ {subtotal}</span>
+                  <span className="ml-auto font-normal text-slate-800">$ {subtotal}</span>
                 </span>
                 <span className="text-sm my-2 font-extralight flex">
                   Shipping Estimate{" "}
-                  <span className="ml-auto font-normal">$ 5</span>
+                  <span className="ml-auto font-normal text-slate-800">$ 5</span>
                 </span>
                 <span className="text-sm my-2 font-extralight flex">
-                  Tax Estimate <span className="ml-auto font-normal">$ 5</span>
+                  Tax Estimate <span className="ml-auto font-normal text-slate-800">$ 5</span>
                 </span>
                 <span className="text-md my-2 font-normal flex">
-                  Order Total <span className="ml-auto">$ {total}</span>
+                  Order Total <span className="ml-auto text-slate-800">$ {total}</span>
                 </span>
                 <button
-                  className={styles.checkoutButton} // Add this class to your styles.module.css
+                  className="px-1 py-2 bg-slate-800 text-white rounded"
                   onClick={handleCheckout}
                 >
                   Checkout

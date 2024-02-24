@@ -13,8 +13,8 @@ const Favorites = () => {
   return (
     <div>
       {favoriteItems.length < 1 && (
-        <div className="flex flex-wrap max-w-7xl mx-auto my-4">
-          <div className="w-full sm:w-2/2 md:w-2/2 xl:w-5/5 p-4 h-[500px] my-auto">
+        <div className="flex flex-wrap max-w-7xl mx-auto my-4 ">
+          <div className="w-full sm:w-2/2 md:w-2/2 xl:w-5/5 p-4 h-[500px] my-auto ">
             <div className={styles.cardBg}>
               <HeartIcon className="h-40 w-40 mx-auto mt-10 text-red-500" />
               <p className="text-xl font-extralight tracking-widest text-center pt-6">
