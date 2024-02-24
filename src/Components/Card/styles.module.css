@@ -1,0 +1,220 @@
+/***** CARD STYLES START *****/
+
+.card {
+  @apply
+  w-full
+  sm:w-1/2
+  md:w-1/2
+  xl:w-1/4
+  p-4
+}
+
+.cardLink {
+  @apply
+  block 
+  shadow-sm
+  hover:shadow-md
+  border-2
+  border-zinc-900/10
+  shadow-zinc-900/10
+  rounded-md 
+  overflow-hidden
+  h-full
+}
+
+/***** CARD HEADER STYLES START *****/
+
+.cardHeader {
+  @apply 
+  relative 
+  pb-64 
+  overflow-hidden
+  shadow-sm
+}
+
+/***** FAVORITES BUTTON STYLES START *****/
+
+.favButton, .removeFavButton {
+  @apply
+  h-6 
+  w-6
+  m-2 
+  ml-auto
+}
+
+.favButton {
+  @apply 
+  text-zinc-900/80
+  hover:text-red-500 
+  flex
+}
+
+.removeFavButton {
+  @apply   
+  text-red-500 flex
+}
+
+/***** FAVORITES BUTTON STYLES END *****/
+
+/***** CARD IMAGE STYLES START *****/
+
+.cardImg {
+  @apply 
+  absolute 
+  inset-0
+  max-h-56
+  w-full 
+  object-contain
+  my-4
+  px-4
+}
+
+.cardLink img {
+  transition: transform .3s ease-in-out; 
+}
+
+.cardLink img:hover {
+  transform: scale(1.02)
+}
+
+/***** CARD IMAGE STYLES START *****/
+
+/***** CARD HEADER STYLES END *****/
+
+/***** CARD BODY STYLES START *****/
+
+.cardBody {
+  @apply 
+  p-4 
+  h-full 
+  flex 
+  flex-1 
+  flex-col
+  text-sm
+  text-zinc-900/80
+}
+
+.cardBody .brand, .cardTitle {
+  @apply
+  mt-1
+  mb-2
+}
+
+.brand {
+  @apply  
+  font-bold 
+  hover:text-blue-600
+}
+
+.cardTitle {
+  @apply  
+  font-light 
+  truncate 
+}
+
+/***** STAR ICON STYLES START *****/
+
+.rating {
+  @apply 
+  flex 
+  flex-row 
+  mb-2
+}
+
+.rating .starIcon, .emptyStarIcon {
+  @apply 
+  h-4 
+  w-4
+  my-auto
+}
+
+.starIcon {
+  @apply
+  text-yellow-300 
+}
+
+.emptyStarIcon {
+  @apply 
+  text-zinc-900/80 
+}
+
+/***** STAR ICON STYLES END *****/
+
+/***** PRICE STYLES START *****/
+
+.priceSub, .priceTop {
+  @apply
+  text-zinc-900/80
+}
+
+.priceSub {
+  @apply 
+  font-extralight  
+  text-xs
+  inline-block
+  align-sub
+}
+
+.priceTop {
+  @apply 
+  font-normal 
+  text-lg 
+  mx-0.5
+  inline-block
+  align-text-top
+}
+
+/***** PRICE STYLES END *****/
+
+/***** ADD TO CART BUTTON STYLES START *****/
+
+.addToCart {
+  @apply
+  mx-auto 
+  text-center
+  w-full
+  mt-2
+}
+
+.addToCartButton, .removeButton {
+  @apply
+  inline-flex 
+  justify-center 
+  w-full
+  rounded-md 
+  shadow-sm
+  shadow-zinc-900/10
+  text-sm
+  text-zinc-50
+  px-2
+  py-2 
+  hover:bg-yellow-300
+}
+
+.addToCartButton {
+  @apply 
+  bg-blue-600
+}
+
+.removeButton {
+  @apply 
+  bg-red-600
+}
+
+.shoppingCartIcon {
+  @apply 
+  my-auto 
+  h-5 
+  w-6 
+}
+
+.buttonText {
+  @apply 
+  font-bold
+}
+
+/***** ADD TO CART BUTTON STYLES END *****/
+
+/***** CARD BODY STYLES END *****/
+
+/***** CARD STYLES END *****/

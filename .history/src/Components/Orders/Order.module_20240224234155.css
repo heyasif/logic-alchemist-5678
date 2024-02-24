@@ -1,0 +1,42 @@
+.orderHistoryContainer {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.orderCard {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  padding: 15px;
+}
+
+.orderItem {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.orderItemImage {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin-right: 20px;
+}
+
+.orderItemDetails {
+  flex: 1;
+}
+
+h2 {
+  text-align: center;
+}
+
+h3 {
+  color: #333;
+}
+
+h4 {
+  margin: 0;
+  color: #007bff;
+}

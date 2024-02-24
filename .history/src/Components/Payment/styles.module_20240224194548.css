@@ -1,0 +1,17 @@
+.checkoutButton {
+  background-color: #4caf50; /* Green background */
+  color: white; /* White text */
+  padding: 10px 20px; /* Padding around the text */
+  margin-top: 20px; /* Extra space above the button */
+  border: none; /* No border */
+  border-radius: 4px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  font-size: 1rem; /* Font size */
+  width: 100%; /* Full width */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Box shadow for a slight 3D effect */
+  transition: background-color 0.3s ease; /* Transition for the background color */
+}
+
+.checkoutButton:hover {
+  background-color: #367c39; /* Darker green background on hover */
+}
