@@ -1,0 +1,47 @@
+.icon {
+    font-size: 25px;
+    border-radius: 50%;
+    border: 2px solid black;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.icon:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.footerDetails{
+    text-align:"left";
+}
+
+.footerDetails p, .footerDetails h3, div > h3 {
+    transition: color 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.footerDetails p:hover, .footerDetails h3:hover, div > h3:hover {
+    color: blue;
+}
+
+/* Icons already have hover effect for scaling and cursor pointer */
+.icon:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+/* Applying hover effect to text elements */
+.footerDetails p, .footerDetails h3, div > h3 {
+    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    cursor: pointer;
+    /* display: inline-block;  */
+}
+
+.footerDetails p:hover, .footerDetails h3:hover, div > h3:hover {
+    color: blue;
+    transform: scale(1.05); /* Increase text size slightly */
+}

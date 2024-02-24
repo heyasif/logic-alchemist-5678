@@ -1,13 +1,16 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import MenuButton from "./MenuButton";
-import CartButton from "./CartButton";
-import styles from "./styles.module.css";
-import { useProduct } from "../../Context/ProductContext";
-import { useAuth } from "../../Context/AuthContext";
-import { Disclosure } from "@headlessui/react";
-import { MenuIcon, XIcon, LogoutIcon } from "@heroicons/react/outline";
-import NAVIGATION from "../../Config/navbarItemList";
+
+import React from 'react'
+import { Link } from 'react-router-dom'
+import MenuButton from './MenuButton'
+import CartButton from './CartButton'
+import styles from './styles.module.css'
+import { useProduct } from '../../Context/ProductContext'
+import { useAuth } from '../../Context/AuthContext'
+import { Disclosure, } from '@headlessui/react'
+import { MenuIcon, XIcon, LogoutIcon } from '@heroicons/react/outline'
+import NAVIGATION from '../../Config/navbarItemList'
+import TopToast from './TopToast'
+
 
 const Navbar = () => {
   const { categories, setCategory } = useProduct();
@@ -28,8 +31,8 @@ const Navbar = () => {
       <Disclosure as="nav">
         {({ open }) => (
           <>
-            <div className="max-w-7xl mx-auto pt-4 pb-6 px-4">
-              <div className="relative flex items-center justify-between h-16">
+            <div className="flex items-center justify-evenly pt-3 pb-3 px-4 bg-sky-100">
+              <div className="relative flex items-center justify-between h-16 gap-x-14">
                 <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                   {/* Mobile menu button*/}
                   <Disclosure.Button className="inline-flex items-center justify-center p-2">
@@ -44,13 +47,23 @@ const Navbar = () => {
                 <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
                   <div className={styles.logo}>
                     <Link className={styles.link} to="/">
-                      <div className={styles.logoBox}>
-                        <h1 className={styles.logoText}>LOGO</h1>
+
+                      <div  >
+                      {/* <h1 className={styles.logoText}>LOGO</h1> */}
+                      {/* <img src="./LogoImage/Logo.jpeg" alt='' /> */}
+                      <p style={{fontFamily: "Protest Riot", fontSize: "30px", fontWeight: "bold"}} >Epic Bazaar</p>
+      
+
                       </div>
                     </Link>
                   </div>
                   <div className="hidden sm:block sm:ml-6"></div>
                 </div>
+
+                <div>
+                   <TopToast  />
+                </div>
+
                 <div className="inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                   <div className="ml-3 relative hidden sm:block">
                     <MenuButton />
@@ -141,15 +154,15 @@ const Navbar = () => {
           </>
         )}
       </Disclosure>
-      <div className="bg-zinc-900/10 mx-auto h-[1.1px] shadow-sm shadow-zinc-900/10 px-12"></div>
-      <nav className={styles.categoryNav}>
+      {/* <div className="bg-zinc-900/10 mx-auto h-[1.1px] shadow-sm shadow-zinc-900/10 px-12 "></div> */}
+      <nav className={styles.categoryNav} style={{height: "auto",width: "100%", padding: "10px 0", boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",}} >
         <div>
           <Link
             className={styles.categoryLink}
             to="/"
             onClick={() => setCategory("")}
           >
-            <h1 className="truncate">All</h1>
+            <h1 className="truncate transition ease-in-out hover:scale-110 duration-300" style={{fontWeight: "600",}}>Home</h1>
           </Link>
         </div>
         {categories &&
@@ -163,13 +176,13 @@ const Navbar = () => {
                     setCategory(item.toLowerCase());
                   }}
                 >
-                  <h1 className="truncate">{item}</h1>
+                  <h1 className="truncate transition ease-in-out hover:scale-110 duration-300" style={{fontWeight: "600"}} id='navLinks' >{item}</h1>
                 </Link>
               </div>
             );
           })}
       </nav>
-      <div className="bg-zinc-900/10 mx-auto h-[1px] shadow-sm shadow-zinc-900/10 px-12"></div>
+      {/* <div className="bg-zinc-900/10 mx-auto h-[1px] shadow-sm shadow-zinc-900/10 px-12"></div> */}
     </>
   );
 };

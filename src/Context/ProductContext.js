@@ -14,15 +14,13 @@ export const ProductProvider = ({ children }) => {
   useEffect(() => {
     setLoading(true);
     const getCategories = async () => {
-      // Assuming your new API provides a specific endpoint for categories
-      // If not, you might need to fetch all products and extract categories from them
-      // For this example, I'll assume categories need to be hardcoded or fetched in a different way
+      
       let categoriesData = [
-        "electronics",
-        "jewelery",
-        "men's clothing",
-        "women's clothing",
-      ]; // Example categories
+        "Electronics",
+        "Jewellery",
+        "Men's Clothing",
+        "Women's Clothing",
+      ]; 
       setCategories(categoriesData);
       setLoading(false);
     };
@@ -37,6 +35,7 @@ export const ProductProvider = ({ children }) => {
         : "https://epicbazaar.onrender.com/products";
       await axios.get(endpoint).then((res) => {
         setProductList(res.data);
+        console.log(res.data);
         setLoading(false);
       });
     };

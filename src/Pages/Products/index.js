@@ -6,6 +6,7 @@ import { useParams } from "react-router-dom";
 import { useCart } from '../../Context/CartContext'
 import { useFavorite } from '../../Context/FavoriteContext'
 import Card from "../../Components/Card";
+import Footer from "../../Components/Footer/Footer";
 
 const Products = () => {
   const {addToCart, items} = useCart()
@@ -20,7 +21,7 @@ const Products = () => {
   }, [category_id])
 
   return (
-    <div className={styles.cardGroup}>
+    <div className={styles.cardGroup} style={{ paddingTop: "30px"}} >
       {!loading ? (
         productList?.map((item, index) => {
           const findCartItem = items.find((cart_item) => cart_item.id === item.id)
@@ -32,6 +33,8 @@ const Products = () => {
       ) : (
         <Spinner />
       )}
+
+      <Footer />
     </div>
   );
 };

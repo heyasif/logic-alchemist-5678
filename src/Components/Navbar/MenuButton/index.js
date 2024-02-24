@@ -1,46 +1,46 @@
-import { Fragment } from "react";
-import { Link } from "react-router-dom";
-import { Menu, Transition } from "@headlessui/react";
-import { ChevronDownIcon } from "@heroicons/react/solid";
-import { UserCircleIcon, LogoutIcon } from "@heroicons/react/outline";
-import styles from "./styles.module.css";
-import { useAuth } from "../../../Context/AuthContext";
-import NAVIGATION from "../../../Config/navbarItemList";
+import { Fragment } from 'react'
+import { Link } from 'react-router-dom'
+import { Menu, Transition } from '@headlessui/react'
+import { ChevronDownIcon } from '@heroicons/react/solid'
+import {
+  UserCircleIcon,
+  LogoutIcon,
+} from '@heroicons/react/outline'
+import styles from './styles.module.css'
+import { useAuth } from '../../../Context/AuthContext'
+import NAVIGATION from '../../../Config/navbarItemList'
 
 const MenuButton = () => {
-  const { loggedIn, currentUser, setIsSubmitting, logout } = useAuth();
-
-  console.log(loggedIn);
+  const { loggedIn, currentUser, setIsSubmitting, logout } = useAuth()
 
   const handleLogout = async () => {
-    setIsSubmitting(true);
+    setIsSubmitting(true)
     try {
-      await logout();
+      await logout()
     } catch {
-      alert("Error");
+      alert("Error")
     }
-    setIsSubmitting(false);
-  };
+    setIsSubmitting(false)
+  }
 
   return (
     <div className="justify-content-center mx-auto text-center">
       {!loggedIn && (
         <Menu as="div" className={styles.menu}>
-          <div>
-            <Menu.Button className={styles.menuButton}>
-              <UserCircleIcon
-                className={styles.userCircleIcon}
-                aria-hidden="true"
-              />
-              <div className="flex flex-col">
-                <div className="text-left">
+          <div style={{borderRadius: "7px"}} >
+            <Menu.Button className={styles.menuButton}  >
+             
+              <div className="flex flex-col" style={{display:"flex", justifyContent: "center", alignItems: "center"}}>
+                <div className="text-left" style={{display:"flex", justifyContent: "center", alignItems: "center", paddingTop: "5px"}} >
                   <strong>Login</strong>
+                
+                / <strong>Sign Up</strong>
                 </div>
-                <div>or Sign Up</div>
               </div>
               <ChevronDownIcon
                 className={styles.chevronDownIcon}
                 aria-hidden="true"
+                
               />
             </Menu.Button>
           </div>
@@ -198,7 +198,7 @@ const MenuButton = () => {
         </Menu>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default MenuButton;
+export default MenuButton

@@ -7,6 +7,11 @@
   md:w-1/2
   xl:w-1/4
   p-4
+  transition
+  duration-300
+  ease-in-out
+  transform
+  hover:scale-105;
 }
 
 .cardLink {
@@ -188,7 +193,7 @@
   text-zinc-50
   px-2
   py-2 
-  hover:bg-yellow-300
+  hover:bg-blue-700
 }
 
 .addToCartButton {

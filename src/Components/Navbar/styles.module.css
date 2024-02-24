@@ -5,7 +5,12 @@
   bg-transparent
   p-6
   z-10
+
 }
+
+/* body{
+  background-color: #e0f2fe;
+} */
 
 .logo {
   @apply
@@ -27,28 +32,28 @@
   @apply
   flex
   py-2
-  max-w-7xl
+  w-full 
   mx-auto
   bg-transparent
-  rounded-lg
   overflow-x-auto
   sm:justify-start
-  md:justify-center
+  md:justify-center;
 }
+
 
 .categoryLink {
   @apply
   tracking-widest
   text-black
-  md:hover:border-x-4
-  md:hover:border-yellow-300
-  decoration-dashed
+  md:hover:underline
   px-6
   py-2
   hover:underline-offset-[5px]
   mx-0
   flex
+  flex-grow;
 }
+
 
 .categoryLink h1 {
   @apply mx-4
@@ -102,4 +107,10 @@
   shadow-zinc-900/10 
   mb-4 
   mx-2
+}
+
+.categoryLink:hover {
+  @apply
+  underline
+  decoration-[#007bff]; /* Example for a blue color; replace #007bff with the hex code for the shade of blue you prefer */
 }
