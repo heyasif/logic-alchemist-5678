@@ -59,3 +59,11 @@
   divide-zinc-900/10 
   focus:outline-none
 }
+
+.chevronDownIcon {
+  transition: transform 0.31s ease-in-out; /* Smooth transition for the transform */
+}
+
+.chevronDownIcon:hover {
+  transform: scale(1.2); /* Slightly increase the size on hover */
+}

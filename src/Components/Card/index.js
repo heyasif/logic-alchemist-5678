@@ -11,7 +11,7 @@ const Card = ({
 }) => {
 
   return (
-    <div key={`${item.id}-item`} className={styles.card} title={item.title}>
+    <div key={`${item.id}-item`} className={styles.card} title={item.title} style={{backgroundColor: 'white'}}>
       <div className={styles.cardLink}>
         <button
           className={
@@ -28,13 +28,16 @@ const Card = ({
             <img className={styles.cardImg} src={item.image} alt="" />
           </div>
         </Link>
-        <div className={styles.cardBody}>
-          <div>
-            <p className={styles.cardTitle} title={item.title}>
-              <span className={styles.brand} title="Brand">
+        <div className={styles.cardBody} style={{backgroundColor: 'white'}} >
+          <div style={{marginBottom: '5px'}}>
+            <p className={styles.cardTitle} title={item.title} style={{fontSize: '0.9rem', fontWeight: 'bold'}}>
+              {/* <span className={styles.brand} title="Brand">
                 Brand,
-              </span>{" "}
+              </span>{" "} */}
               {item.title}
+            </p>
+            <p>
+              {item.description.substring(0, 50)}...
             </p>
           </div>
           <div className={styles.rating} title={item.rating.rate}>
