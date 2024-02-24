@@ -5,7 +5,7 @@ import {
   ClipboardListIcon,
   HeartIcon,
   ShoppingCartIcon,
-} from '@heroicons/react/outline'
+} from "@heroicons/react/outline";
 
 const NAVIGATION = [
   {
@@ -21,10 +21,7 @@ const NAVIGATION = [
     name: "Sign Up",
     link: "/signup",
     icon: (
-      <IdentificationIcon
-        className="mr-2 my-auto h-5 w-5"
-        aria-hidden="true"
-      />
+      <IdentificationIcon className="mr-2 my-auto h-5 w-5" aria-hidden="true" />
     ),
     loggedIn: false,
     underlined: true,
@@ -52,10 +49,7 @@ const NAVIGATION = [
     name: "Orders",
     link: "/orders",
     icon: (
-      <ClipboardListIcon
-        className="mr-2 my-auto h-5 w-5"
-        aria-hidden="true"
-      />
+      <ClipboardListIcon className="mr-2 my-auto h-5 w-5" aria-hidden="true" />
     ),
     loggedIn: true,
     underlined: false,
@@ -68,6 +62,6 @@ const NAVIGATION = [
     loggedIn: "public",
     underlined: true,
   },
-]
+];
 
-export default NAVIGATION
+export default NAVIGATION;

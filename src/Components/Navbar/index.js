@@ -1,27 +1,27 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import MenuButton from './MenuButton'
-import CartButton from './CartButton'
-import styles from './styles.module.css'
-import { useProduct } from '../../Context/ProductContext'
-import { useAuth } from '../../Context/AuthContext'
-import { Disclosure, } from '@headlessui/react'
-import { MenuIcon, XIcon, LogoutIcon } from '@heroicons/react/outline'
-import NAVIGATION from '../../Config/navbarItemList'
+import React from "react";
+import { Link } from "react-router-dom";
+import MenuButton from "./MenuButton";
+import CartButton from "./CartButton";
+import styles from "./styles.module.css";
+import { useProduct } from "../../Context/ProductContext";
+import { useAuth } from "../../Context/AuthContext";
+import { Disclosure } from "@headlessui/react";
+import { MenuIcon, XIcon, LogoutIcon } from "@heroicons/react/outline";
+import NAVIGATION from "../../Config/navbarItemList";
 
 const Navbar = () => {
-  const { categories, setCategory } = useProduct()
-  const { loggedIn, currentUser, setIsSubmitting, logout } = useAuth()
+  const { categories, setCategory } = useProduct();
+  const { loggedIn, currentUser, setIsSubmitting, logout } = useAuth();
 
   const handleLogout = async () => {
-    setIsSubmitting(true)
+    setIsSubmitting(true);
     try {
-      await logout()
+      await logout();
     } catch {
-      alert("Error")
+      alert("Error");
     }
-    setIsSubmitting(false)
-  }
+    setIsSubmitting(false);
+  };
 
   return (
     <>
@@ -45,7 +45,7 @@ const Navbar = () => {
                   <div className={styles.logo}>
                     <Link className={styles.link} to="/">
                       <div className={styles.logoBox}>
-                      <h1 className={styles.logoText}>LOGO</h1>
+                        <h1 className={styles.logoText}>LOGO</h1>
                       </div>
                     </Link>
                   </div>
@@ -65,7 +65,9 @@ const Navbar = () => {
 
             <Disclosure.Panel className={styles.disclosurePanel}>
               <div>
-                {!loggedIn && NAVIGATION.map(({
+                {!loggedIn &&
+                  NAVIGATION.map(
+                    ({
                       id,
                       name,
                       link,
@@ -74,7 +76,7 @@ const Navbar = () => {
                       loggedIn,
                       onclick,
                     }) => (
-                      <Link 
+                      <Link
                         to={link}
                         onClick={onclick ? onclick : null}
                         className={`${
@@ -82,13 +84,20 @@ const Navbar = () => {
                         }`}
                         key={`${name}-00${id}`}
                       >
-                      <Disclosure.Button className={`${styles.disclosureButton} ${underlined ? "border-b-2 border-zinc-900/10" : ""}`}>
-                        {icon}
-                        {name}
-                      </Disclosure.Button>
+                        <Disclosure.Button
+                          className={`${styles.disclosureButton} ${
+                            underlined ? "border-b-2 border-zinc-900/10" : ""
+                          }`}
+                        >
+                          {icon}
+                          {name}
+                        </Disclosure.Button>
                       </Link>
-                    ))}
-                    {loggedIn && NAVIGATION.map(({
+                    )
+                  )}
+                {loggedIn &&
+                  NAVIGATION.map(
+                    ({
                       id,
                       name,
                       link,
@@ -97,7 +106,7 @@ const Navbar = () => {
                       loggedIn,
                       onclick,
                     }) => (
-                      <Link 
+                      <Link
                         to={link}
                         onClick={onclick ? onclick : null}
                         className={`${
@@ -105,17 +114,19 @@ const Navbar = () => {
                         }`}
                         key={`${name}-00${id}`}
                       >
-                      <Disclosure.Button className={`${styles.disclosureButton} ${underlined ? "border-b-2 border-zinc-900/10" : ""}`}>
-                        {icon}
-                        {name}
-                      </Disclosure.Button>
+                        <Disclosure.Button
+                          className={`${styles.disclosureButton} ${
+                            underlined ? "border-b-2 border-zinc-900/10" : ""
+                          }`}
+                        >
+                          {icon}
+                          {name}
+                        </Disclosure.Button>
                       </Link>
-                    ))}
-                    {loggedIn && (
-                      <Link 
-                      to="/"
-                      onClick={handleLogout}
-                    >
+                    )
+                  )}
+                {loggedIn && (
+                  <Link to="/" onClick={handleLogout}>
                     <Disclosure.Button className={styles.disclosureButton}>
                       <LogoutIcon
                         className="mr-2 my-auto h-5 w-5"
@@ -123,9 +134,8 @@ const Navbar = () => {
                       />
                       Logout
                     </Disclosure.Button>
-                    </Link>
-                    )}
-                
+                  </Link>
+                )}
               </div>
             </Disclosure.Panel>
           </>
