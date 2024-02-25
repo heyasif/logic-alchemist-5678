@@ -102,17 +102,18 @@ const MenuButton = () => {
 
       {loggedIn && (
         <Menu as="div" className={styles.menu}>
-          <div>
+          <div  >
             <Menu.Button className={styles.menuButton}>
-              <UserCircleIcon
-                className={styles.userCircleIcon}
-                aria-hidden="true"
-              />
+              
+              <div style={{marginRight: "10px", marginTop: "5px"}} >
+                <i style={{fontSize: "25px"}} class="fa-solid fa-user-tie"></i>
+              </div>
+              
               <div className="flex flex-col">
                 <div className="text-left">
-                  <strong>Hello,</strong>
+                  <strong>Welcome!</strong>
                 </div>
-                <div>{currentUser?.firstName}</div>
+                <div>{currentUser?.name.firstname}</div>
               </div>
               <ChevronDownIcon
                 className={styles.chevronDownIcon}
@@ -131,7 +132,7 @@ const MenuButton = () => {
             leaveTo="transform opacity-0 scale-95"
           >
             <Menu.Items className={styles.menuItems}>
-              <div>
+              <div style={{backgroundColor: "skyblue", padding: "15px", borderRadius: "5px"}} >
                 {loggedIn &&
                   NAVIGATION.map(
                     ({
