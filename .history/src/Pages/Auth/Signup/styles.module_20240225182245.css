@@ -107,14 +107,21 @@
 }
 
 .successNotification {
-  position: fixed; /* or absolute, depending on your layout */
-  top: 50%; /* Adjust as necessary */
-  left: 50%;
+  position: fixed;
+  top: 40%;
+  left: 40%;
   transform: translate(-50%, -50%);
   background-color: #4caf50; /* Background color for success */
   color: white; /* Text color */
-  padding: 20px;
+  padding: 60px;
   border-radius: 8px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-  z-index: 1000; /* Ensure this is higher than other elements */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-weight: bold;
+  font-size: 16px;
+  height: 100px; /* Adjust height */
+  width: 300px; /* Adjust width */
 }

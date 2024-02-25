@@ -105,16 +105,18 @@
   my-0
   py-0;
 }
-
 .successNotification {
-  position: fixed; /* or absolute, depending on your layout */
-  top: 50%; /* Adjust as necessary */
+  padding: 20px;
+  background-color: #dff0d8; /* Light green background */
+  color: #3c763d; /* Dark green text */
+  border-radius: 4px;
+  text-align: center;
+  position: fixed;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #4caf50; /* Background color for success */
-  color: white; /* Text color */
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-  z-index: 1000; /* Ensure this is higher than other elements */
+  z-index: 1000; /* Ensure it appears above other content */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
+  max-width: 90%; /* Ensure it doesn't stretch too far on wide screens */
+  box-sizing: border-box;
 }

@@ -21,13 +21,6 @@ const Signup = () => {
   const [showSuccessAnimation, setShowSuccessAnimation] = useState(false);
   const navigate = useNavigate();
 
-  const successAnimationProps = useSpring({
-    opacity: showSuccessAnimation ? 1 : 0,
-    transform: showSuccessAnimation ? "scale(1)" : "scale(0)",
-    from: { opacity: 0, transform: "scale(0)" },
-    config: { tension: 300, friction: 10 },
-  });
-
   const handleSignUpFormChange = (e) => {
     const { name, value } = e.target;
     setNewUser((prevNewUser) => ({
@@ -41,7 +34,6 @@ const Signup = () => {
     const validationErrors = validations(newUser);
     setErrors(validationErrors);
 
-    // Proceed only if there are no validation errors
     if (Object.keys(validationErrors).length === 0) {
       setIsSubmitting(true);
       try {
@@ -59,18 +51,10 @@ const Signup = () => {
           }
         );
 
-        // Check if the response includes user data to confirm successful signup
         if (response.data) {
-          setCurrentUser(response.data); // Update current user context/state
-          localStorage.setItem("user", JSON.stringify(response.data)); // Optionally save user data to local storage
-
-          setShowSuccessAnimation(true); // Trigger the success animation
-
-          // Optionally hide the animation and redirect the user after a delay
-          setTimeout(() => {
-            setShowSuccessAnimation(false); // Hide the success animation
-            navigate("/signin"); // Redirect the user to another route
-          }, 2000); // Delay before hiding the animation and redirecting (2000 ms = 2 seconds)
+          setCurrentUser(response.data);
+          localStorage.setItem("user", JSON.stringify(response.data));
+          setShowModal(true); // Show modal notification upon successful registration
         }
       } catch (error) {
         console.error("Signup error:", error);

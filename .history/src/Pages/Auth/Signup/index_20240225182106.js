@@ -69,7 +69,7 @@ const Signup = () => {
           // Optionally hide the animation and redirect the user after a delay
           setTimeout(() => {
             setShowSuccessAnimation(false); // Hide the success animation
-            navigate("/signin"); // Redirect the user to another route
+            navigate("/login"); // Redirect the user to another route
           }, 2000); // Delay before hiding the animation and redirecting (2000 ms = 2 seconds)
         }
       } catch (error) {

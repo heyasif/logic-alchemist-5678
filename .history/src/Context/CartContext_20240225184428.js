@@ -41,15 +41,8 @@ export const CartProvider = ({ children }) => {
     setItems(filtered);
   };
 
-  const reloadCartFromLocalStorage = () => {
-    const updatedCart = JSON.parse(localStorage.getItem("cart")) || [];
-    setItems(updatedCart);
-  };
-
   return (
-    <CartContext.Provider
-      value={{ items, addToCart, removeFromCart, reloadCartFromLocalStorage }}
-    >
+    <CartContext.Provider value={{ items, addToCart, removeFromCart }}>
       {children}
     </CartContext.Provider>
   );

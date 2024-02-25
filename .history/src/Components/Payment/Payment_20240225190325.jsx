@@ -4,7 +4,6 @@ import { useAuth } from "../../Context/AuthContext";
 import axios from "axios";
 import { useSpring, animated } from "react-spring";
 import styles from "./Payment.module.css";
-import { useCart } from "../../Context/CartContext";
 
 const Payment = () => {
   const { currentUser } = useAuth();
@@ -128,7 +127,6 @@ const Payment = () => {
       if (response.status === 200 || response.status === 201) {
         // Clear the cart from localStorage
         localStorage.removeItem("cart");
-        reloadCartFromLocalStorage();
 
         setShowAnimation(true);
         setTimeout(() => {

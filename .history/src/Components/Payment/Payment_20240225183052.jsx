@@ -4,7 +4,6 @@ import { useAuth } from "../../Context/AuthContext";
 import axios from "axios";
 import { useSpring, animated } from "react-spring";
 import styles from "./Payment.module.css";
-import { useCart } from "../../Context/CartContext";
 
 const Payment = () => {
   const { currentUser } = useAuth();
@@ -26,7 +25,6 @@ const Payment = () => {
     paypalEmail: "", // Additional field for PayPal email
   });
   const [showAnimation, setShowAnimation] = useState(false);
-  const { reloadCartFromLocalStorage } = useCart();
 
   const animationProps = useSpring({
     opacity: showAnimation ? 1 : 0,
@@ -90,6 +88,7 @@ const Payment = () => {
       setFormData({ ...formData, [name]: value });
     }
   };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!currentUser || !currentUser.email) {
@@ -126,9 +125,7 @@ const Payment = () => {
         orderData
       );
       if (response.status === 200 || response.status === 201) {
-        // Clear the cart from localStorage
         localStorage.removeItem("cart");
-        reloadCartFromLocalStorage();
 
         setShowAnimation(true);
         setTimeout(() => {
