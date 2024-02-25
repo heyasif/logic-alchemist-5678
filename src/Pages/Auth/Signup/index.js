@@ -5,6 +5,8 @@ import { useAuth } from "../../../Context/AuthContext";
 import styles from "./styles.module.css";
 import validations from "./validations";
 import Modal from "./Modal";
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import './index.css'
 
 const Signup = () => {
   const { setCurrentUser, setIsSubmitting, errors, setErrors } = useAuth();
@@ -13,12 +15,13 @@ const Signup = () => {
     lastName: "",
     email: "",
     username: "",
-    phone: "",
+    phone: "+91 ",
     password: "",
     passwordConfirm: "",
   });
   const [showModal, setShowModal] = useState(false); // State for modal visibility
   const navigate = useNavigate();
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleSignUpFormChange = (e) => {
     const { name, value } = e.target;
@@ -66,7 +69,9 @@ const Signup = () => {
       }
     }
   };
-
+  const togglePasswordVisibility = () => {
+    setShowPassword((prevShowPassword) => !prevShowPassword);
+  };
   return (
     <div className={styles.formGroupContainer}>
       <Modal isOpen={showModal} onClose={() => setShowModal(false)}>
@@ -146,12 +151,13 @@ const Signup = () => {
               )}
               <label className="sr-only">Phone Number</label>
               <input
-                type="text"
+                type="tel"
                 className={styles.input}
                 onChange={handleSignUpFormChange}
                 value={newUser.phone}
                 name="phone"
                 placeholder="Phone Number"
+                maxLength={14}
               />
             </div>
             <div>
@@ -160,13 +166,16 @@ const Signup = () => {
               )}
               <label className="sr-only">Password</label>
               <input
-                type="Password"
+                type={showPassword ? 'text' : 'password'}
                 className={styles.input}
                 onChange={handleSignUpFormChange}
                 value={newUser.password}
                 name="password"
                 placeholder="Password"
               />
+               <span className="password-toggle-icon" onClick={togglePasswordVisibility}>
+            {showPassword ? <FaEyeSlash /> : <FaEye />}
+          </span>
             </div>
             <div>
               {errors.passwordConfirm && (
@@ -174,13 +183,16 @@ const Signup = () => {
               )}
               <label className="sr-only">Password Confirm</label>
               <input
-                type="Password"
+                type={showPassword ? 'text' : 'password'}
                 className={styles.input}
                 onChange={handleSignUpFormChange}
                 value={newUser.passwordConfirm}
                 name="passwordConfirm"
                 placeholder="Password Confirm"
               />
+               <span className="password-toggle-icon" onClick={togglePasswordVisibility}>
+            {showPassword ? <FaEyeSlash /> : <FaEye />}
+          </span>
             </div>
             <div className={styles.linkBox}>
               <div className={styles.linkDiv}>

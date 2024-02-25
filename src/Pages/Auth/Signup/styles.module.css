@@ -9,11 +9,11 @@
   lg:px-8
   w-full
   bg-sky-100
+ 
 }
-
 .formGroup {
   @apply 
-  max-w-md 
+  max-w-xl 
   w-full 
   space-y-8
   pt-6
@@ -58,7 +58,8 @@
   appearance-none 
   relative 
   block 
-  w-full
+  w-96
+  h-10
   mb-4
   px-3 
   py-2 
@@ -89,7 +90,7 @@
   px-2
   py-2
   bg-blue-600
-  hover:bg-yellow-300
+  hover:bg-blue-500
 }
 
 .linkBox {

@@ -1,0 +1,8 @@
+.password-toggle-icon {
+    position: absolute;
+    top: 64%;
+    right: -40px; /* Adjust as needed */
+    transform: translateY(-50%);
+    cursor: pointer;
+    pointer-events: auto; /* Ensure the icon is clickable */
+  }
