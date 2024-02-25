@@ -1,174 +1,118 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import MenuButton from './MenuButton'
-import CartButton from './CartButton'
-import styles from './styles.module.css'
-import { useProduct } from '../../Context/ProductContext'
-import { useAuth } from '../../Context/AuthContext'
-import { Disclosure, } from '@headlessui/react'
-import { MenuIcon, XIcon, LogoutIcon } from '@heroicons/react/outline'
-import NAVIGATION from '../../Config/navbarItemList'
-import TopToast from './TopToast'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import MenuButton from './MenuButton';
+import CartButton from './CartButton';
+import TopToast from './TopToast'; // Ensure this is correctly imported
+import styles from './styles.module.css';
+import { useProduct } from '../../Context/ProductContext';
+import { useAuth } from '../../Context/AuthContext';
+import { Disclosure } from '@headlessui/react';
+import { MenuIcon, XIcon, LogoutIcon } from '@heroicons/react/outline';
+import NAVIGATION from '../../Config/navbarItemList';
 
 const Navbar = () => {
-  const { categories, setCategory } = useProduct()
-  const { loggedIn, currentUser, setIsSubmitting, logout } = useAuth()
+  const { categories, setCategory } = useProduct();
+  const { loggedIn, logout, setIsSubmitting } = useAuth();
 
   const handleLogout = async () => {
-    setIsSubmitting(true)
+    setIsSubmitting(true);
     try {
-      await logout()
+      await logout();
     } catch {
-      alert("Error")
+      alert("Error");
     }
-    setIsSubmitting(false)
-  }
+    setIsSubmitting(false);
+  };
 
   return (
     <>
       <Disclosure as="nav">
         {({ open }) => (
           <>
-            <div className="flex items-center justify-evenly pt-3 pb-3 px-4 bg-sky-100">
-              <div className="relative flex items-center justify-between h-16 gap-x-14">
-                <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
-                  {/* Mobile menu button*/}
-                  <Disclosure.Button className="inline-flex items-center justify-center p-2">
-                    <span className="sr-only">Open main menu</span>
-                    {open ? (
-                      <XIcon className="block h-9 w-9" aria-hidden="true" />
-                    ) : (
-                      <MenuIcon className="block h-9 w-9" aria-hidden="true" />
-                    )}
-                  </Disclosure.Button>
-                </div>
-                <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
-                  <div className={styles.logo}>
-                    <Link className={styles.link} to="/">
-                      <div  >
-                      {/* <h1 className={styles.logoText}>LOGO</h1> */}
-                      {/* <img src="./LogoImage/Logo.jpeg" alt='' /> */}
-                      <p style={{fontFamily: "Protest Riot", fontSize: "30px", fontWeight: "bold"}} >Epic Bazaar</p>
-      
-                      </div>
-                    </Link>
-                  </div>
-                  <div className="hidden sm:block sm:ml-6"></div>
+            <div className="flex items-center justify-between pt-3 pb-3 px-4 bg-sky-100">
+              {/* Hamburger menu positioned to the extreme left for small screens */}
+              <div className="flex items-center sm:hidden">
+                <Disclosure.Button className="inline-flex items-center justify-center p-2">
+                  <span className="sr-only">Open main menu</span>
+                  {open ? (
+                    <XIcon className="block h-9 w-9" aria-hidden="true" />
+                  ) : (
+                    <MenuIcon className="block h-9 w-9" aria-hidden="true" />
+                  )}
+                </Disclosure.Button>
+              </div>
+
+              {/* Logo and "Epic Bazaar" text centered */}
+              <div className="flex-1 flex justify-center sm:justify-start" style={{marginLeft: "90px"}} >
+                <Link className={styles.link} to="/">
+                  <p style={{fontFamily: "Protest Riot", fontSize: "30px", fontWeight: "bold"}}>Epic Bazaar</p>
+                </Link>
+              </div>
+
+              {/* Right-aligned items, including always visible CartButton and conditionally visible TopToast */}
+              <div className="flex items-center">
+                {/* TopToast visible on large screens */}
+                <div className="hidden lg:block" style={{marginRight: "160px"}} >
+                  <TopToast />
                 </div>
 
-                <div>
-                   <TopToast  />
+                {/* MenuButton hidden on small screens, visible on larger screens */}
+                <div className="hidden sm:block">
+                  <MenuButton />
                 </div>
-
-                <div className="inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                  <div className="ml-3 relative hidden sm:block">
-                    <MenuButton />
-                  </div>
-                  <div className="ml-3 relative">
-                    <CartButton />
-                  </div>
-                  {/* Profile dropdown */}
-                </div>
+                
+                {/* CartButton always visible */}
+                <CartButton />
               </div>
             </div>
 
             <Disclosure.Panel className={styles.disclosurePanel}>
-              <div>
-                {!loggedIn && NAVIGATION.map(({
-                      id,
-                      name,
-                      link,
-                      icon,
-                      underlined,
-                      loggedIn,
-                      onclick,
-                    }) => (
-                      <Link 
-                        to={link}
-                        onClick={onclick ? onclick : null}
-                        className={`${
-                          !loggedIn || loggedIn === "public" || "hidden"
-                        }`}
-                        key={`${name}-00${id}`}
-                      >
-                      <Disclosure.Button className={`${styles.disclosureButton} ${underlined ? "border-b-2 border-zinc-900/10" : ""}`}>
-                        {icon}
-                        {name}
-                      </Disclosure.Button>
-                      </Link>
-                    ))}
-                    {loggedIn && NAVIGATION.map(({
-                      id,
-                      name,
-                      link,
-                      icon,
-                      underlined,
-                      loggedIn,
-                      onclick,
-                    }) => (
-                      <Link 
-                        to={link}
-                        onClick={onclick ? onclick : null}
-                        className={`${
-                          loggedIn || loggedIn === "public" || "hidden"
-                        }`}
-                        key={`${name}-00${id}`}
-                      >
-                      <Disclosure.Button className={`${styles.disclosureButton} ${underlined ? "border-b-2 border-zinc-900/10" : ""}`}>
-                        {icon}
-                        {name}
-                      </Disclosure.Button>
-                      </Link>
-                    ))}
-                    {loggedIn && (
-                      <Link 
-                      to="/"
-                      onClick={handleLogout}
-                    >
+              <div className="px-2 pt-2 pb-3 space-y-1">
+                {NAVIGATION.map(({ id, name, link, icon }) => (
+                  <Link to={link} key={id}>
+                    <Disclosure.Button className={`${styles.disclosureButton} flex`}>
+                      {icon}
+                      {name}
+                    </Disclosure.Button>
+                  </Link>
+                ))}
+                {loggedIn && (
+                  <Link to="/" onClick={handleLogout}>
                     <Disclosure.Button className={styles.disclosureButton}>
-                      <LogoutIcon
-                        className="mr-2 my-auto h-5 w-5"
-                        aria-hidden="true"
-                      />
+                      <LogoutIcon className="mr-2 h-5 w-5" aria-hidden="true" />
                       Logout
                     </Disclosure.Button>
-                    </Link>
-                    )}
-                
+                  </Link>
+                )}
               </div>
             </Disclosure.Panel>
           </>
         )}
       </Disclosure>
-      {/* <div className="bg-zinc-900/10 mx-auto h-[1.1px] shadow-sm shadow-zinc-900/10 px-12 "></div> */}
-      <nav className={styles.categoryNav} style={{height: "auto",width: "100%", padding: "10px 0", boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",}} >
+
+      <nav className={styles.categoryNav} style={{height: "auto", width: "100%", padding: "10px 0", boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px"}}>
         <div>
           <Link
             className={styles.categoryLink}
             to="/"
             onClick={() => setCategory("")}
           >
-            <h1 className="truncate transition ease-in-out hover:scale-110 duration-300" style={{fontWeight: "600",}}>Home</h1>
+            <h1 className="truncate transition ease-in-out hover:scale-110 duration-300" style={{fontWeight: "600"}}>Home</h1>
           </Link>
         </div>
         {categories &&
-          categories.map((item, index) => {
-            return (
-              <div key={`${item}-${index}`}>
-                <Link
-                  className={styles.categoryLink}
-                  to={`/${item.toLowerCase()}`}
-                  onClick={() => {
-                    setCategory(item.toLowerCase());
-                  }}
-                >
-                  <h1 className="truncate transition ease-in-out hover:scale-110 duration-300" style={{fontWeight: "600"}} id='navLinks' >{item}</h1>
-                </Link>
-              </div>
-            );
-          })}
+          categories.map((item, index) => (
+            <div key={`${item}-${index}`}>
+              <Link
+                className={styles.categoryLink}
+                to={`/${item.toLowerCase()}`}
+                onClick={() => setCategory(item.toLowerCase())}
+              >
+                <h1 className="truncate transition ease-in-out hover:scale-110 duration-300" style={{fontWeight: "600"}}>{item}</h1>
+              </Link>
+            </div>
+          ))}
       </nav>
-      {/* <div className="bg-zinc-900/10 mx-auto h-[1px] shadow-sm shadow-zinc-900/10 px-12"></div> */}
     </>
   );
 };

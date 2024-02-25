@@ -45,3 +45,24 @@
     color: blue;
     transform: scale(1.05); /* Increase text size slightly */
 }
+
+
+
+/* style={{display:"grid", gridTemplateColumns:"1fr 1fr 1fr 1fr", color:"black", padding:"10px 0 10px 40px"}} */
+
+/* @media (max-width: 768px) {
+    .icon {
+        font-size: 20px;
+        height: 30px;
+        width: 30px;
+    }
+    #footer {
+        grid-template-columns: "1fr 1fr";
+    }
+}
+
+@media (max-width: 480px) {
+    #footer {
+        grid-template-columns: "1fr";
+    }
+} */

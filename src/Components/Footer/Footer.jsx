@@ -12,7 +12,7 @@ const Footer = () => {
 
             <hr/>
 
-            <div style={{display:"flex", justifyContent:"space-around", color:"black", padding: "20px 0"}} >
+            <div id="footer" style={{display:"flex", justifyContent:"space-around", color:"black"}} >
                 <div className="footerDetails" >
                     <h3 style={{fontWeight:"bold", marginBottom:"10px"}}>ABOUT</h3>
                     <p>Contact Us</p>
