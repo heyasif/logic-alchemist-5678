@@ -41,6 +41,5 @@
   transform: scale(1.2); /* Slightly increase the size on hover */
 }
 
-  @apply origin-top-right absolute right-0 mt-2 w-full rounded-md shadow-md shadow-zinc-900/10 bg-zinc-50 ring-2 ring-zinc-900/10 divide-y-2 divide-zinc-900/10 focus:outline-none
-}
+
 

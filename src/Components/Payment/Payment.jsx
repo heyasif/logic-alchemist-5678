@@ -253,8 +253,7 @@ const Payment = () => {
     <path d="M20.73 5.29l-9.99 9.99-5.3-5.3a.996.996 0 0 0-1.41 1.41l6 6 .01.01c.39.39 1.02.39 1.41 0l10-10a.996.996 0 0 0 0-1.41c-.39-.38-1.02-.38-1.42.01z" />
   </svg>
   Order Placed Successfully !!!
-</animated.div>
-    </div>
+</animated.div>    </div>
   );
 };
 
