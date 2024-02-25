@@ -30,12 +30,9 @@ const Profile = () => {
         <h1 className={styles.profileName}>
           {`${currentUser.name.firstname} ${currentUser.name.lastname}`}
         </h1>
-        <p className={styles.profileEmail}>Email:{currentUser.email}</p>
-        <p className={styles.profileUsername}>
-          {" "}
-          Username :{currentUser.username}
-        </p>
-        <p className={styles.profilePhone}>Phone:{currentUser.phone}</p>
+        <p className={styles.profileEmail}>{currentUser.email}</p>
+        <p className={styles.profileUsername}>{currentUser.username}</p>
+        <p className={styles.profilePhone}>{currentUser.phone}</p>
       </div>
     </div>
   );

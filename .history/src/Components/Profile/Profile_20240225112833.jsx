@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import styles from "./Profile.module.css"; // Import the CSS module
+import styles from "./Profile.module.css"; // Assume you have some basic CSS in place
 import { useAuth } from "../../Context/AuthContext";
 
 const Profile = () => {
@@ -27,15 +27,12 @@ const Profile = () => {
           alt="Profile"
           className={styles.profileImage}
         />
-        <h1 className={styles.profileName}>
-          {`${currentUser.name.firstname} ${currentUser.name.lastname}`}
-        </h1>
-        <p className={styles.profileEmail}>Email:{currentUser.email}</p>
-        <p className={styles.profileUsername}>
-          {" "}
-          Username :{currentUser.username}
-        </p>
-        <p className={styles.profilePhone}>Phone:{currentUser.phone}</p>
+        <h1
+          className={styles.profileName}
+        >{`${currentUser.name.firstname} ${currentUser.name.lastname}`}</h1>
+        <p className={styles.profileEmail}>{currentUser.email}</p>
+        <p className={styles.profileUsername}>{currentUser.username}</p>
+        <p className={styles.profilePhone}>{currentUser.phone}</p>
       </div>
     </div>
   );
