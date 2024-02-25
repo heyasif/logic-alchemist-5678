@@ -7,6 +7,8 @@
   px-4 
   sm:px-6 
   lg:px-8
+  w-full
+  bg-sky-100
 }
 
 .formGroup {
@@ -16,12 +18,16 @@
   space-y-8
   pt-6
   pb-12
+  pl-10
+  pr-10
   my-auto
   shadow-sm
-  border-2
+  w-full
   border-zinc-900/10
   shadow-zinc-900/10
   rounded-md 
+  bg-sky-200
+  hover:bg-sky-300
 }
 
 .title{
