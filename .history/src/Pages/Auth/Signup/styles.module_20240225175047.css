@@ -105,16 +105,24 @@
   my-0
   py-0;
 }
+/* styles.module.css */
 
 .successNotification {
-  position: fixed; /* or absolute, depending on your layout */
-  top: 50%; /* Adjust as necessary */
+  padding: 10px;
+  margin-top: 20px;
+  background-color: #dff0d8; /* Light green background */
+  color: #3c763d; /* Dark green text */
+  border: 1px solid #d6e9c6; /* Greenish border */
+  border-radius: 4px;
+  text-align: center;
+  position: fixed;
   left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #4caf50; /* Background color for success */
-  color: white; /* Text color */
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-  z-index: 1000; /* Ensure this is higher than other elements */
+  transform: translateX(-50%);
+  bottom: 20px;
+  z-index: 1000; /* Ensure it appears above other content */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Optional: Add a subtle shadow */
+  width: auto;
+  max-width: 80%; /* Ensure it doesn't stretch too far on wide screens */
 }
+
+/* Additional style for animation-specific adjustments, if needed */

@@ -1,5 +1,6 @@
 .formGroupContainer {
-  @apply min-h-full 
+  @apply 
+  min-h-full 
   flex items-center 
   justify-center 
   py-12 
@@ -7,11 +8,12 @@
   sm:px-6 
   lg:px-8
   w-full
-  bg-sky-100;
+  bg-sky-100
 }
 
 .formGroup {
-  @apply max-w-md 
+  @apply 
+  max-w-md 
   w-full 
   space-y-8
   pt-6
@@ -25,31 +27,35 @@
   shadow-zinc-900/10
   rounded-md 
   bg-sky-200
-  hover:bg-sky-300;
+  hover:bg-sky-300
 }
 
-.title {
-  @apply mt-6 
+.title{
+  @apply 
+  mt-6 
   text-center 
   text-5xl 
   font-extralight 
-  tracking-wide;
+  tracking-wide
 }
 
 .signUpForm {
-  @apply mt-8
+  @apply
+  mt-8
   space-y-6
-  px-20;
+  px-20
 }
 
 .inputGroup {
-  @apply rounded-md  
+  @apply 
+  rounded-md  
   -space-y-px
-  relative;
+  relative
 }
 
 .input {
-  @apply appearance-none 
+  @apply 
+  appearance-none 
   relative 
   block 
   w-full
@@ -66,11 +72,12 @@
   focus:ring-1 
   focus:ring-blue-600 
   focus:z-10 
-  sm:text-sm;
+  sm:text-sm
 }
 
 .button {
-  @apply inline-flex 
+  @apply
+  inline-flex 
   justify-center 
   w-full
   rounded-md 
@@ -82,39 +89,29 @@
   px-2
   py-2
   bg-blue-600
-  hover:bg-yellow-300;
+  hover:bg-yellow-300
 }
 
 .linkBox {
-  @apply flex 
+  @apply 
+  flex 
   items-center 
-  pb-5;
+  pb-5
 }
 
 .linkDiv {
-  @apply flex 
+  @apply 
+  flex 
   items-center 
-  mx-auto;
+  mx-auto
 }
 
 .error {
-  @apply text-xs
+  @apply
+  text-xs
   text-red-500
   inline-block
   mx-auto
   my-0
-  py-0;
-}
-
-.successNotification {
-  position: fixed; /* or absolute, depending on your layout */
-  top: 50%; /* Adjust as necessary */
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #4caf50; /* Background color for success */
-  color: white; /* Text color */
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-  z-index: 1000; /* Ensure this is higher than other elements */
+  py-0
 }

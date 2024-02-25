@@ -4,7 +4,6 @@ import { useAuth } from "../../Context/AuthContext";
 import axios from "axios";
 import { useSpring, animated } from "react-spring";
 import styles from "./Payment.module.css";
-import { useCart } from "../../Context/CartContext";
 
 const Payment = () => {
   const { currentUser } = useAuth();
@@ -26,7 +25,6 @@ const Payment = () => {
     paypalEmail: "", // Additional field for PayPal email
   });
   const [showAnimation, setShowAnimation] = useState(false);
-  const { reloadCartFromLocalStorage } = useCart();
 
   const animationProps = useSpring({
     opacity: showAnimation ? 1 : 0,
@@ -90,6 +88,7 @@ const Payment = () => {
       setFormData({ ...formData, [name]: value });
     }
   };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!currentUser || !currentUser.email) {
@@ -126,10 +125,6 @@ const Payment = () => {
         orderData
       );
       if (response.status === 200 || response.status === 201) {
-        // Clear the cart from localStorage
-        localStorage.removeItem("cart");
-        reloadCartFromLocalStorage();
-
         setShowAnimation(true);
         setTimeout(() => {
           navigate("/orders", { replace: true });
@@ -149,63 +144,62 @@ const Payment = () => {
     <div id="parent">
       <div className={styles.paymentFormContainer}>
         <form onSubmit={handleSubmit} className={styles.paymentForm}>
-          {/* Full Name */}
-          <div className={styles.inputGroup}>
-            <label htmlFor="fullName">Full Name</label>
-            <input
-              placeholder="Enter your full name"
-              type="text"
-              id="fullName"
-              name="fullName"
-              value={formData.fullName}
-              onChange={handleInputChange}
-              required
-            />
+          <div className={styles.splitInput}>
+            <div className={styles.inputGroup}>
+              <label htmlFor="fullName">Full Name</label>
+              <input
+                placeholder="Enter your full name"
+                type="text"
+                id="fullName"
+                name="fullName"
+                value={formData.fullName}
+                onChange={handleInputChange}
+                required
+              />
+            </div>
+
+            <div className={styles.inputGroup}>
+              <label htmlFor="streetAddress">Street Address</label>
+              <input
+                placeholder="Enter your street address"
+                type="text"
+                id="streetAddress"
+                name="streetAddress"
+                value={formData.streetAddress}
+                onChange={handleInputChange}
+                required
+              />
+            </div>
           </div>
 
-          {/* Street Address */}
-          <div className={styles.inputGroup}>
-            <label htmlFor="streetAddress">Street Address</label>
-            <input
-              placeholder="Enter your street address"
-              type="text"
-              id="streetAddress"
-              name="streetAddress"
-              value={formData.streetAddress}
-              onChange={handleInputChange}
-              required
-            />
+          <div className={styles.splitInput}>
+            <div className={styles.inputGroup}>
+              <label htmlFor="city">City</label>
+              <input
+                placeholder="Enter your city"
+                type="text"
+                id="city"
+                name="city"
+                value={formData.city}
+                onChange={handleInputChange}
+                required
+              />
+            </div>
+
+            <div className={styles.inputGroup}>
+              <label htmlFor="zipCode">Zip Code</label>
+              <input
+                placeholder="Enter your zip code"
+                type="number"
+                id="zipCode"
+                name="zipCode"
+                value={formData.zipCode}
+                onChange={handleInputChange}
+                required
+              />
+            </div>
           </div>
 
-          {/* City */}
-          <div className={styles.inputGroup}>
-            <label htmlFor="city">City</label>
-            <input
-              placeholder="Enter your city"
-              type="text"
-              id="city"
-              name="city"
-              value={formData.city}
-              onChange={handleInputChange}
-              required
-            />
-          </div>
-
-          {/* Zip Code */}
-          <div className={styles.inputGroup}>
-            <label htmlFor="zipCode">Zip Code</label>
-            <input
-              placeholder="Enter your zip code"
-              type="number"
-              id="zipCode"
-              name="zipCode"
-              value={formData.zipCode}
-              onChange={handleInputChange}
-              required
-            />
-          </div>
-
-          {/* Payment Method */}
           <div className={styles.inputGroup}>
             <label htmlFor="paymentMethod">Payment Method</label>
             <select
@@ -220,9 +214,9 @@ const Payment = () => {
             </select>
           </div>
 
-          {/* Conditional Inputs based on Payment Method */}
           {formData.paymentMethod === "CreditCard" && (
             <div className={styles.cardDetails}>
+              {/* Existing Card Details Inputs */}
               {/* Card Number */}
               <div className={styles.inputGroup}>
                 <label htmlFor="cardNumber">Card Number</label>
@@ -236,29 +230,44 @@ const Payment = () => {
                   required
                 />
               </div>
-              {/* Expiry Date */}
-              <div className={styles.inputGroup}>
-                <label htmlFor="expiry">Expiry Date</label>
-                <input
-                  placeholder="MM/YY"
-                  type="text"
-                  id="expiry"
-                  name="expiry"
-                  value={formData.cardDetails.expiry}
-                  onChange={handleInputChange}
-                  required
-                />
+              {/* Expiry Month and Year */}
+              <div className={styles.splitInput}>
+                <div className={styles.inputGroup}>
+                  <label htmlFor="expiryMonth">Expiry Month</label>
+                  <input
+                    placeholder="MM"
+                    type="text"
+                    id="expiryMonth"
+                    name="expiryMonth"
+                    value={formData.cardDetails.expiryMonth}
+                    onChange={handleInputChange}
+                    required
+                  />
+                </div>
+                <div className={styles.inputGroup}>
+                  <label htmlFor="expiryYear">Expiry Year</label>
+                  <input
+                    placeholder="YYYY"
+                    type="text"
+                    id="expiryYear"
+                    name="expiryYear"
+                    value={formData.cardDetails.expiryYear}
+                    onChange={handleInputChange}
+                    required
+                  />
+                </div>
               </div>
               {/* CVC */}
               <div className={styles.inputGroup}>
                 <label htmlFor="cvc">CVC</label>
                 <input
+                  style={{ width: "30%" }}
                   placeholder="CVC"
-                  type="number"
+                  type="text"
                   id="cvc"
                   name="cvc"
                   value={formData.cardDetails.cvc}
-                  maxLength="3"
+                  maxLength="4"
                   onChange={handleInputChange}
                   required
                 />

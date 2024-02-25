@@ -23,9 +23,8 @@ const Signup = () => {
 
   const successAnimationProps = useSpring({
     opacity: showSuccessAnimation ? 1 : 0,
-    transform: showSuccessAnimation ? "scale(1)" : "scale(0)",
-    from: { opacity: 0, transform: "scale(0)" },
-    config: { tension: 300, friction: 10 },
+    transform: showSuccessAnimation ? "translateY(0)" : "translateY(-20px)",
+    from: { opacity: 0, transform: "translateY(-20px)" },
   });
 
   const handleSignUpFormChange = (e) => {
@@ -69,7 +68,7 @@ const Signup = () => {
           // Optionally hide the animation and redirect the user after a delay
           setTimeout(() => {
             setShowSuccessAnimation(false); // Hide the success animation
-            navigate("/signin"); // Redirect the user to another route
+            navigate("/"); // Redirect the user to another route
           }, 2000); // Delay before hiding the animation and redirecting (2000 ms = 2 seconds)
         }
       } catch (error) {

@@ -4,7 +4,6 @@ import { useAuth } from "../../Context/AuthContext";
 import axios from "axios";
 import { useSpring, animated } from "react-spring";
 import styles from "./Payment.module.css";
-import { useCart } from "../../Context/CartContext";
 
 const Payment = () => {
   const { currentUser } = useAuth();

@@ -4,7 +4,6 @@ import { useAuth } from "../../Context/AuthContext";
 import axios from "axios";
 import { useSpring, animated } from "react-spring";
 import styles from "./Payment.module.css";
-import { useCart } from "../../Context/CartContext";
 
 const Payment = () => {
   const { currentUser } = useAuth();
@@ -26,7 +25,6 @@ const Payment = () => {
     paypalEmail: "", // Additional field for PayPal email
   });
   const [showAnimation, setShowAnimation] = useState(false);
-  const { reloadCartFromLocalStorage } = useCart();
 
   const animationProps = useSpring({
     opacity: showAnimation ? 1 : 0,
@@ -127,7 +125,10 @@ const Payment = () => {
       );
       if (response.status === 200 || response.status === 201) {
         // Clear the cart from localStorage
+        // After successfully submitting the order in your Payment component
         localStorage.removeItem("cart");
+        // Assuming you have access to the cart context here, either directly or via a hook
+        const { reloadCartFromLocalStorage } = useCart();
         reloadCartFromLocalStorage();
 
         setShowAnimation(true);

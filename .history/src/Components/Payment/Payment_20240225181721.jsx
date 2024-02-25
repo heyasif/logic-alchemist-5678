@@ -4,7 +4,6 @@ import { useAuth } from "../../Context/AuthContext";
 import axios from "axios";
 import { useSpring, animated } from "react-spring";
 import styles from "./Payment.module.css";
-import { useCart } from "../../Context/CartContext";
 
 const Payment = () => {
   const { currentUser } = useAuth();
@@ -26,7 +25,6 @@ const Payment = () => {
     paypalEmail: "", // Additional field for PayPal email
   });
   const [showAnimation, setShowAnimation] = useState(false);
-  const { reloadCartFromLocalStorage } = useCart();
 
   const animationProps = useSpring({
     opacity: showAnimation ? 1 : 0,
@@ -90,6 +88,7 @@ const Payment = () => {
       setFormData({ ...formData, [name]: value });
     }
   };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!currentUser || !currentUser.email) {
@@ -126,10 +125,6 @@ const Payment = () => {
         orderData
       );
       if (response.status === 200 || response.status === 201) {
-        // Clear the cart from localStorage
-        localStorage.removeItem("cart");
-        reloadCartFromLocalStorage();
-
         setShowAnimation(true);
         setTimeout(() => {
           navigate("/orders", { replace: true });
@@ -162,7 +157,7 @@ const Payment = () => {
               required
             />
           </div>
-
+  
           {/* Street Address */}
           <div className={styles.inputGroup}>
             <label htmlFor="streetAddress">Street Address</label>
@@ -176,7 +171,7 @@ const Payment = () => {
               required
             />
           </div>
-
+  
           {/* City */}
           <div className={styles.inputGroup}>
             <label htmlFor="city">City</label>
@@ -190,7 +185,7 @@ const Payment = () => {
               required
             />
           </div>
-
+  
           {/* Zip Code */}
           <div className={styles.inputGroup}>
             <label htmlFor="zipCode">Zip Code</label>
@@ -204,7 +199,7 @@ const Payment = () => {
               required
             />
           </div>
-
+  
           {/* Payment Method */}
           <div className={styles.inputGroup}>
             <label htmlFor="paymentMethod">Payment Method</label>
@@ -219,7 +214,7 @@ const Payment = () => {
               <option value="PayPal">PayPal</option>
             </select>
           </div>
-
+  
           {/* Conditional Inputs based on Payment Method */}
           {formData.paymentMethod === "CreditCard" && (
             <div className={styles.cardDetails}>
@@ -254,7 +249,7 @@ const Payment = () => {
                 <label htmlFor="cvc">CVC</label>
                 <input
                   placeholder="CVC"
-                  type="number"
+                  type="text"
                   id="cvc"
                   name="cvc"
                   value={formData.cardDetails.cvc}
@@ -265,7 +260,7 @@ const Payment = () => {
               </div>
             </div>
           )}
-
+  
           {formData.paymentMethod === "PayPal" && (
             <div className={styles.inputGroup}>
               <label htmlFor="paypalEmail">PayPal Email</label>
@@ -280,20 +275,16 @@ const Payment = () => {
               />
             </div>
           )}
-
+  
           <button type="submit" className={styles.submitButton}>
             Place Order
           </button>
         </form>
       </div>
-      <animated.div
-        style={animationProps}
-        className={styles.celebrationAnimation}
-      >
+      <animated.div style={animationProps} className={styles.celebrationAnimation}>
         Order Placed Successfully !!!
       </animated.div>
     </div>
   );
-};
-
+  
 export default Payment;

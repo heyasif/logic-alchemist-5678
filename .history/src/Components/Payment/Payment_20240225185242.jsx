@@ -10,6 +10,7 @@ const Payment = () => {
   const { currentUser } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
+  const { reloadCartFromLocalStorage } = useCart(); // Moved to the top level
   const [cartItems, setCartItems] = useState([]);
   const [formData, setFormData] = useState({
     fullName: "",
@@ -17,16 +18,15 @@ const Payment = () => {
     city: "",
     zipCode: "",
     email: "",
-    paymentMethod: "CreditCard", // Default to CreditCard for initial state
+    paymentMethod: "CreditCard",
     cardDetails: {
       cardNumber: "",
-      expiry: "", // Combined expiry month and year
+      expiry: "",
       cvc: "",
     },
-    paypalEmail: "", // Additional field for PayPal email
+    paypalEmail: "",
   });
   const [showAnimation, setShowAnimation] = useState(false);
-  const { reloadCartFromLocalStorage } = useCart();
 
   const animationProps = useSpring({
     opacity: showAnimation ? 1 : 0,
@@ -41,55 +41,8 @@ const Payment = () => {
     }
   }, [location.state]);
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    if (name === "cardNumber") {
-      const formattedValue = value.replace(/\D/g, "").slice(0, 16);
-      setFormData({
-        ...formData,
-        cardDetails: { ...formData.cardDetails, cardNumber: formattedValue },
-      });
-    } else if (name === "expiry") {
-      let formattedValue = value
-        .replace(
-          /^([1-9]\/|[2-9])$/g,
-          "0$1/" // Add 0 before single digit month
-        )
-        .replace(
-          /^(0[1-9]|1[0-2])$/g,
-          "$1/" // Add slash after MM
-        )
-        .replace(
-          /^([0-1])([3-9])$/g,
-          "0$1/$2" // Format 13-19 to 01/3 - 01/9
-        )
-        .replace(
-          /^(0?[1-9]|1[0-2])([0-9]{2})$/g,
-          "$1/$2" // Add full year after MM/
-        )
-        .replace(
-          /^([0]+)\/|[0]+$/g,
-          "0" // Prevent 00/..
-        )
-        .replace(
-          /[^\d\/]|^[\/]*$/g,
-          "" // Prevent chars that aren't digits or slash
-        )
-        .slice(0, 5); // Limit to MM/YY format
-      setFormData({
-        ...formData,
-        cardDetails: { ...formData.cardDetails, expiry: formattedValue },
-      });
-    } else if (name === "cvc") {
-      const formattedValue = value.slice(0, 3);
-      setFormData({
-        ...formData,
-        cardDetails: { ...formData.cardDetails, cvc: formattedValue },
-      });
-    } else {
-      setFormData({ ...formData, [name]: value });
-    }
-  };
+  // All your existing logic for handleInputChange
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!currentUser || !currentUser.email) {
@@ -97,54 +50,26 @@ const Payment = () => {
       return;
     }
 
-    const orderDate = new Date().toISOString();
-
-    const orderData = {
-      email: currentUser.email,
-      orderDate,
-      items: cartItems.map((item) => ({
-        title: item.title,
-        price: item.price.toString(),
-        description: item.description,
-        category: item.category,
-        image: item.image,
-      })),
-      paymentMethod: formData.paymentMethod,
-      paymentDetails:
-        formData.paymentMethod === "CreditCard"
-          ? {
-              ...formData.cardDetails,
-              expiryMonth: formData.cardDetails.expiry.split("/")[0],
-              expiryYear: "20" + formData.cardDetails.expiry.split("/")[1],
-            }
-          : { paypalEmail: formData.paypalEmail },
-    };
+    // All your existing logic for submitting the order
 
     try {
       const response = await axios.post(
-        "https://epicbazaar.onrender.com/orders",
-        orderData
+        "https://epicbazaar.onrender.com/orders"
+        // Your orderData
       );
       if (response.status === 200 || response.status === 201) {
-        // Clear the cart from localStorage
-        localStorage.removeItem("cart");
-        reloadCartFromLocalStorage();
+        localStorage.removeItem("cart"); // Clear the cart from localStorage
+        reloadCartFromLocalStorage(); // This line is now valid
 
         setShowAnimation(true);
-        setTimeout(() => {
-          navigate("/orders", { replace: true });
-        }, 2000); // Redirect after 2 seconds
+        setTimeout(() => navigate("/orders", { replace: true }), 2000);
       } else {
         console.error("Failed to submit order:", response.statusText);
       }
     } catch (error) {
-      console.error(
-        "Order submission error:",
-        error.response ? error.response.data : error.message
-      );
+      console.error("Order submission error:", error);
     }
   };
-
   return (
     <div id="parent">
       <div className={styles.paymentFormContainer}>

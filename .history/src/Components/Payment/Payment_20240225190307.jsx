@@ -12,6 +12,8 @@ const Payment = () => {
   const location = useLocation();
   const [cartItems, setCartItems] = useState([]);
   const [formData, setFormData] = useState({
+  const { reloadCartFromLocalStorage } = useCart();
+
     fullName: "",
     streetAddress: "",
     city: "",
@@ -26,7 +28,6 @@ const Payment = () => {
     paypalEmail: "", // Additional field for PayPal email
   });
   const [showAnimation, setShowAnimation] = useState(false);
-  const { reloadCartFromLocalStorage } = useCart();
 
   const animationProps = useSpring({
     opacity: showAnimation ? 1 : 0,
@@ -128,7 +129,6 @@ const Payment = () => {
       if (response.status === 200 || response.status === 201) {
         // Clear the cart from localStorage
         localStorage.removeItem("cart");
-        reloadCartFromLocalStorage();
 
         setShowAnimation(true);
         setTimeout(() => {
