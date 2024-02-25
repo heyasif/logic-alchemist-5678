@@ -27,15 +27,17 @@ const Profile = () => {
           alt="Profile"
           className={styles.profileImage}
         />
-        <h1 className={styles.profileName}>
+        <div className="">  
+          <h1 className={styles.profileName}>
           {`${currentUser.name.firstname} ${currentUser.name.lastname}`}
         </h1>
-        <p className={styles.profileEmail}>Email:{currentUser.email}</p>
+        <p className={styles.profileEmail}> <b>Email: </b>  {currentUser.email}</p>
         <p className={styles.profileUsername}>
           {" "}
-          Username :{currentUser.username}
+           <b>Username: </b> {currentUser.username}
         </p>
-        <p className={styles.profilePhone}>Phone:{currentUser.phone}</p>
+        <p className={styles.profilePhone}><b>Phone: </b>{currentUser.phone}</p></div>
+      
       </div>
     </div>
   );

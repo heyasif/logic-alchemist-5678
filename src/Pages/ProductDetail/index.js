@@ -64,7 +64,7 @@ const ProductDetail = () => {
                 </p>
                 <div className="flex">
                   <div className="my-auto">
-                    <span className="font-extralight text-2xl inline-block align-middle mt-2 my-auto">
+                    <span className="text-stone-800 text-2xl inline-block align-middle mt-2 my-auto">
                       $ {product.price}
                     </span>
                   </div>

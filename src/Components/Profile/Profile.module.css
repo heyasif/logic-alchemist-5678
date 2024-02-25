@@ -11,31 +11,42 @@ background-color: #e0f2fe;
 }
 
 .profileCard {
-  width: 100%;
+  /* width: 50%; */
   background: #fff;
+  display: flex;
+  justify-content: space-around;
+  /* align-items: center; */
+  flex-wrap: wrap;
+  gap: 1rem;
   padding: 2rem;
-  margin-top: -6rem;
+  /* margin-top: -15rem; */
+  margin: -12rem 2rem 0 2rem;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   border-radius: 1rem;
   text-align: center;
   transition: 2s ease-in-out;
+  /* border: 2px solid; */
 }
 .profileCard:hover{
   transform: scale(0.98);
 }
 
 .profileImage {
-  width: 10rem; /* Adjust as needed */
-  height: 10rem; /* Adjust as needed */
+  width: 10rem; 
+  height: 10rem; 
   border-radius: 50%;
   margin-bottom: 1rem;
   object-fit: cover;
+  /* border: 2px solid; */
+
 }
 
 .profileName {
-  font-size: 1.5rem;
+  font-size: 2rem;
+  font-weight: bold;
   color: #333;
   margin-bottom: 0.5rem;
+  text-align: start;
 }
 
 .profileEmail,
@@ -44,12 +55,17 @@ background-color: #e0f2fe;
 .profileAddress {
   color: #121111;
   margin-bottom: 0.25rem;
+  text-align: start;
+  font-size: 20px;
+  font-weight: 400;
+
 }
+
 .profileContainer {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* Ensure the profile takes up the full height of the viewport */
+  height: 100vh; 
 }
 
 .profileCard {
@@ -58,11 +74,11 @@ background-color: #e0f2fe;
 
 .profileImage {
   display: block;
-  margin: 0 auto; /* Center the image */
-  border-radius: 50%; /* Make the image round */
-  width: 150px; /* Set the width of the image */
-  height: 150px; /* Set the height of the image */
-  object-fit: cover; /* Ensure the image covers the entire space */
+  margin: 0 auto; 
+  border-radius: 50%; 
+  width: 150px;
+  height: 150px; 
+  object-fit: cover; 
 }
 
 .profileName {

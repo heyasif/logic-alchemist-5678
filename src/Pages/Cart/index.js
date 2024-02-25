@@ -55,7 +55,7 @@ const Cart = () => {
                 key={item.id}
               >
                 <div className={styles.bgCart}>
-                  <div className="flex flex-row h-48">
+                  <div className="flex flex-row h-48 ">
                     <img
                       className="w-32 my-auto p-4 object-contain "
                       src={item.image}
@@ -66,9 +66,10 @@ const Cart = () => {
                         <h2 className="text-sm title-font text-zinc-900 tracking-widest hover:text-blue-600 mt-2">
                           {item.brand}
                         </h2>
-                        <p className="font-extralight">{item.title}</p>
+                        <p className="text-black text-xl">{item.title}</p>
                       </Link>
-                      <p className="mt-auto mb-4 font-extralight text-xl">
+                      <p className="text-stone-700 my-2 overflow-auto">{item.description}</p>
+                      <p className="mt-auto mb-4 text-stone-800 text-xl">
                         $ {item.price}
                       </p>
                     </div>
