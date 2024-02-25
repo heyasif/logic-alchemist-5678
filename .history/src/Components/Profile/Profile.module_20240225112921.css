@@ -1,0 +1,26 @@
+.profileContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Ensure the profile takes up the full height of the viewport */
+}
+
+.profileCard {
+  text-align: center;
+}
+
+.profileImage {
+  display: block;
+  margin: 0 auto; /* Center the image */
+  border-radius: 50%; /* Make the image round */
+  width: 150px; /* Set the width of the image */
+  height: 150px; /* Set the height of the image */
+  object-fit: cover; /* Ensure the image covers the entire space */
+}
+
+.profileName {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+/* Add any additional styling for other profile details */

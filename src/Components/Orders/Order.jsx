@@ -1,3 +1,5 @@
+// Order.jsx
+
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useAuth } from "../../Context/AuthContext";
@@ -37,11 +39,11 @@ const Order = () => {
 
   return (
     <div className={styles.orderHistoryContainer}>
-      <h2>Order History</h2>
+      <h2 style={{fontWeight: "bold", fontSize: "40px"}}>Order History</h2>
       {orders.length > 0 ? (
         orders.map((order, index) => (
-          <div key={index} className={styles.orderCard}>
-            <h3>Order Date: {formatDate(order.orderDate)}</h3>
+          <div key={index} className={styles.orderCard} >
+            <h3 style={{fontWeight: "bold"}}>Order Date: {formatDate(order.orderDate)}</h3>
             <ul>
               {order.items.map((item, itemIndex) => (
                 <li key={itemIndex} className={styles.orderItem}>
@@ -53,8 +55,8 @@ const Order = () => {
                   <div className={styles.orderItemDetails}>
                     <h4>{item.title}</h4>
                     <p>{item.description}</p>
-                    <p>Category: {item.category}</p>
-                    <p>Price: ${item.price}</p>
+                    <strong><p>Category: {item.category}</p></strong>
+                   <strong> <p>Price: ${item.price}</p></strong>
                   </div>
                 </li>
               ))}

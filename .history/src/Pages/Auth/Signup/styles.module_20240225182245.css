@@ -1,0 +1,127 @@
+.formGroupContainer {
+  @apply min-h-full 
+  flex items-center 
+  justify-center 
+  py-12 
+  px-4 
+  sm:px-6 
+  lg:px-8
+  w-full
+  bg-sky-100;
+}
+
+.formGroup {
+  @apply max-w-md 
+  w-full 
+  space-y-8
+  pt-6
+  pb-12
+  pl-10
+  pr-10
+  my-auto
+  shadow-sm
+  w-full
+  border-zinc-900/10
+  shadow-zinc-900/10
+  rounded-md 
+  bg-sky-200
+  hover:bg-sky-300;
+}
+
+.title {
+  @apply mt-6 
+  text-center 
+  text-5xl 
+  font-extralight 
+  tracking-wide;
+}
+
+.signUpForm {
+  @apply mt-8
+  space-y-6
+  px-20;
+}
+
+.inputGroup {
+  @apply rounded-md  
+  -space-y-px
+  relative;
+}
+
+.input {
+  @apply appearance-none 
+  relative 
+  block 
+  w-full
+  mb-4
+  px-3 
+  py-2 
+  border 
+  shadow-sm
+  border-zinc-900/10
+  shadow-zinc-900/10
+  placeholder-zinc-900/50 
+  rounded-md
+  focus:outline-none  
+  focus:ring-1 
+  focus:ring-blue-600 
+  focus:z-10 
+  sm:text-sm;
+}
+
+.button {
+  @apply inline-flex 
+  justify-center 
+  w-full
+  rounded-md 
+  shadow-sm
+  shadow-zinc-900/10
+  text-sm
+  font-bold
+  text-zinc-50
+  px-2
+  py-2
+  bg-blue-600
+  hover:bg-yellow-300;
+}
+
+.linkBox {
+  @apply flex 
+  items-center 
+  pb-5;
+}
+
+.linkDiv {
+  @apply flex 
+  items-center 
+  mx-auto;
+}
+
+.error {
+  @apply text-xs
+  text-red-500
+  inline-block
+  mx-auto
+  my-0
+  py-0;
+}
+
+.successNotification {
+  position: fixed;
+  top: 40%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+  background-color: #4caf50; /* Background color for success */
+  color: white; /* Text color */
+  padding: 60px;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-weight: bold;
+  font-size: 16px;
+  height: 100px; /* Adjust height */
+  width: 300px; /* Adjust width */
+}

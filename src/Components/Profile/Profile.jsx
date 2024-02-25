@@ -1,11 +1,13 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import styles from "./Profile.module.css"; // Assume you have some basic CSS in place
+import styles from "./Profile.module.css"; // Import the CSS module
 import { useAuth } from "../../Context/AuthContext";
 
 const Profile = () => {
   const { currentUser, loggedIn } = useAuth();
   const navigate = useNavigate();
+
+  console.log(currentUser);
 
   useEffect(() => {
     if (!loggedIn) {
@@ -25,16 +27,17 @@ const Profile = () => {
           alt="Profile"
           className={styles.profileImage}
         />
-        <h1
-          className={styles.profileName}
-        >{`${currentUser.name.firstname} ${currentUser.name.lastname}`}</h1>
-        <p className={styles.profileEmail}>{currentUser.email}</p>
-        <p className={styles.profileUsername}>{currentUser.username}</p>
-        <p className={styles.profilePhone}>{currentUser.phone}</p>
-        <p className={styles.profileAddress}>
-          {`${currentUser.address.street}, ${currentUser.address.city}, ${currentUser.address.zipcode}`}
+        <div className="">  
+          <h1 className={styles.profileName}>
+          {`${currentUser.name.firstname} ${currentUser.name.lastname}`}
+        </h1>
+        <p className={styles.profileEmail}> <b>Email: </b>  {currentUser.email}</p>
+        <p className={styles.profileUsername}>
+          {" "}
+           <b>Username: </b> {currentUser.username}
         </p>
-        {/* Add more user details as needed */}
+        <p className={styles.profilePhone}><b>Phone: </b>{currentUser.phone}</p></div>
+      
       </div>
     </div>
   );

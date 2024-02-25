@@ -1,0 +1,128 @@
+.formGroupContainer {
+  @apply min-h-full 
+  flex items-center 
+  justify-center 
+  py-12 
+  px-4 
+  sm:px-6 
+  lg:px-8
+  w-full
+  bg-sky-100;
+}
+
+.formGroup {
+  @apply max-w-md 
+  w-full 
+  space-y-8
+  pt-6
+  pb-12
+  pl-10
+  pr-10
+  my-auto
+  shadow-sm
+  w-full
+  border-zinc-900/10
+  shadow-zinc-900/10
+  rounded-md 
+  bg-sky-200
+  hover:bg-sky-300;
+}
+
+.title {
+  @apply mt-6 
+  text-center 
+  text-5xl 
+  font-extralight 
+  tracking-wide;
+}
+
+.signUpForm {
+  @apply mt-8
+  space-y-6
+  px-20;
+}
+
+.inputGroup {
+  @apply rounded-md  
+  -space-y-px
+  relative;
+}
+
+.input {
+  @apply appearance-none 
+  relative 
+  block 
+  w-full
+  mb-4
+  px-3 
+  py-2 
+  border 
+  shadow-sm
+  border-zinc-900/10
+  shadow-zinc-900/10
+  placeholder-zinc-900/50 
+  rounded-md
+  focus:outline-none  
+  focus:ring-1 
+  focus:ring-blue-600 
+  focus:z-10 
+  sm:text-sm;
+}
+
+.button {
+  @apply inline-flex 
+  justify-center 
+  w-full
+  rounded-md 
+  shadow-sm
+  shadow-zinc-900/10
+  text-sm
+  font-bold
+  text-zinc-50
+  px-2
+  py-2
+  bg-blue-600
+  hover:bg-yellow-300;
+}
+
+.linkBox {
+  @apply flex 
+  items-center 
+  pb-5;
+}
+
+.linkDiv {
+  @apply flex 
+  items-center 
+  mx-auto;
+}
+
+.error {
+  @apply text-xs
+  text-red-500
+  inline-block
+  mx-auto
+  my-0
+  py-0;
+}
+/* styles.module.css */
+
+.successNotification {
+  padding: 10px;
+  margin-top: 20px;
+  background-color: #dff0d8; /* Light green background */
+  color: #3c763d; /* Dark green text */
+  border: 1px solid #d6e9c6; /* Greenish border */
+  border-radius: 4px;
+  text-align: center;
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 20px;
+  z-index: 1000; /* Ensure it appears above other content */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Optional: Add a subtle shadow */
+  width: auto;
+  max-width: 80%; /* Ensure it doesn't stretch too far on wide screens */
+}
+
+/* Additional style for animation-specific adjustments, if needed */
