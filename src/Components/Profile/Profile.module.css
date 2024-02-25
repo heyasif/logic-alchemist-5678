@@ -1,18 +1,27 @@
 /* Profile.module.css */
 .profileContainer {
-  width: 60%;
-  margin: 5rem auto; /* 5rem top and bottom margin */
+background-color: #e0f2fe;
+  /* width: 60%; */
+  width: 100%;
+  /* margin: 5rem auto; 5rem top and bottom margin */
+  margin:  auto; /* 5rem top and bottom margin */
   display: flex;
   justify-content: center;
+  /* border: 2px solid; */
 }
 
 .profileCard {
   width: 100%;
   background: #fff;
   padding: 2rem;
+  margin-top: -6rem;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   border-radius: 1rem;
   text-align: center;
+  transition: 2s ease-in-out;
+}
+.profileCard:hover{
+  transform: scale(0.98);
 }
 
 .profileImage {
@@ -33,7 +42,7 @@
 .profileUsername,
 .profilePhone,
 .profileAddress {
-  color: #666;
+  color: #121111;
   margin-bottom: 0.25rem;
 }
 .profileContainer {
