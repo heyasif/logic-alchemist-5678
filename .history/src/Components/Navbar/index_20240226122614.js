@@ -1,15 +1,14 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import MenuButton from "./MenuButton";
-import CartButton from "./CartButton";
-import TopToast from "./TopToast"; // Ensure this is correctly imported
-import styles from "./styles.module.css";
-import { useProduct } from "../../Context/ProductContext";
-import { useAuth } from "../../Context/AuthContext";
-import { Disclosure } from "@headlessui/react";
-import { MenuIcon, XIcon, LogoutIcon } from "@heroicons/react/outline";
-import NAVIGATION from "../../Config/navbarItemList";
-import logo from "../../Assets/Screenshots/EpicBazzar-logos_black.png";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import MenuButton from './MenuButton';
+import CartButton from './CartButton';
+import TopToast from './TopToast'; // Ensure this is correctly imported
+import styles from './styles.module.css';
+import { useProduct } from '../../Context/ProductContext';
+import { useAuth } from '../../Context/AuthContext';
+import { Disclosure } from '@headlessui/react';
+import { MenuIcon, XIcon, LogoutIcon } from '@heroicons/react/outline';
+import NAVIGATION from '../../Config/navbarItemList';
 
 const Navbar = () => {
   const { categories, setCategory } = useProduct();
@@ -44,30 +43,16 @@ const Navbar = () => {
               </div>
 
               {/* Logo and "Epic Bazaar" text centered */}
-              <div
-                className="flex-1 flex justify-center sm:justify-start"
-                style={{ marginLeft: "90px" }}
-              >
+              <div className="flex-1 flex justify-center sm:justify-start" style={{marginLeft: "90px"}} >
                 <Link className={styles.link} to="/">
-                  <p
-                    style={{
-                      fontFamily: "Protest Riot",
-                      fontSize: "30px",
-                      fontWeight: "bold",
-                    }}
-                  >
-                    <img src={logo} style={{ height: "40px" }} />
-                  </p>
+                  <p style={{fontFamily: "Protest Riot", fontSize: "30px", fontWeight: "bold"}}>Epic Bazaar</p>
                 </Link>
               </div>
 
               {/* Right-aligned items, including always visible CartButton and conditionally visible TopToast */}
               <div className="flex items-center">
                 {/* TopToast visible on large screens */}
-                <div
-                  className="hidden lg:block"
-                  style={{ marginRight: "160px" }}
-                >
+                <div className="hidden lg:block" style={{marginRight: "160px"}} >
                   <TopToast />
                 </div>
 
@@ -75,7 +60,7 @@ const Navbar = () => {
                 <div className="hidden sm:block">
                   <MenuButton />
                 </div>
-
+                
                 {/* CartButton always visible */}
                 <CartButton />
               </div>
@@ -85,9 +70,7 @@ const Navbar = () => {
               <div className="px-2 pt-2 pb-3 space-y-1">
                 {NAVIGATION.map(({ id, name, link, icon }) => (
                   <Link to={link} key={id}>
-                    <Disclosure.Button
-                      className={`${styles.disclosureButton} flex`}
-                    >
+                    <Disclosure.Button className={`${styles.disclosureButton} flex`}>
                       {icon}
                       {name}
                     </Disclosure.Button>
@@ -107,27 +90,14 @@ const Navbar = () => {
         )}
       </Disclosure>
 
-      <nav
-        className={styles.categoryNav}
-        style={{
-          height: "auto",
-          width: "100%",
-          padding: "10px 0",
-          boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
-        }}
-      >
+      <nav className={styles.categoryNav} style={{height: "auto", width: "100%", padding: "10px 0", boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px"}}>
         <div>
           <Link
             className={styles.categoryLink}
             to="/"
             onClick={() => setCategory("")}
           >
-            <h1
-              className="truncate transition ease-in-out hover:scale-110 duration-300"
-              style={{ fontWeight: "600" }}
-            >
-              Home
-            </h1>
+            <h1 className="truncate transition ease-in-out hover:scale-110 duration-300" style={{fontWeight: "600"}}>Home</h1>
           </Link>
         </div>
         {categories &&
@@ -138,12 +108,7 @@ const Navbar = () => {
                 to={`/${item.toLowerCase()}`}
                 onClick={() => setCategory(item.toLowerCase())}
               >
-                <h1
-                  className="truncate transition ease-in-out hover:scale-110 duration-300"
-                  style={{ fontWeight: "600" }}
-                >
-                  {item}
-                </h1>
+                <h1 className="truncate transition ease-in-out hover:scale-110 duration-300" style={{fontWeight: "600"}}>{item}</h1>
               </Link>
             </div>
           ))}

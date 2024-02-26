@@ -118,3 +118,27 @@
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
   z-index: 1000; /* Ensure this is higher than other elements */
 }
+.formGroup {
+  width: 80%; /* Adjust this value as needed */
+  max-width: 800px; /* Or whatever maximum width you prefer */
+  margin: auto; /* Center the container */
+}
+.inputGroupRow {
+  display: flex;
+  justify-content: space-between;
+}
+
+.inputGroupHalf {
+  flex: 1;
+  margin-right: 10px; /* Add space between inputs, adjust as needed */
+}
+
+.inputGroupHalf:last-child {
+  margin-right: 0; /* Remove margin for the last element */
+}
+
+.input {
+  /* Assuming .input is your existing class */
+  width: 100%; /* Ensure input takes full width of its parent */
+  height: 50px;
+}
