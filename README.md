@@ -79,3 +79,24 @@ If your application relies on external APIs, document them and include any neces
 - **Tailwind CSS:** For styling.
 - **Rest API:** For the backend API.
 
+## ScreenShots  
+
+##Home Page
+![home](https://github.com/heyyrahul/python-magician-6789/assets/79692865/28405382-84b2-4bc6-a100-112fd12fa802)
+
+##Login
+![login](https://github.com/heyyrahul/python-magician-6789/assets/79692865/46c6cc49-c0e3-4e26-80b2-22356dc62b1c)
+
+##Cart
+![cart](https://github.com/heyyrahul/python-magician-6789/assets/79692865/6cb206ac-9e23-44f6-b130-382303f1bf23)
+##Payment
+![payment and address](https://github.com/heyyrahul/python-magician-6789/assets/79692865/36f22e4c-00fe-42ad-952e-352a81cb0d93)
+##Order History
+![orderhistory](https://github.com/heyyrahul/python-magician-6789/assets/79692865/317cf7a7-cb6b-4a4e-ae4b-c85877fa166d)
+##Admin Dashboard
+![adminDasbhboard](https://github.com/heyyrahul/python-magician-6789/assets/79692865/08fdc07a-353d-4dc6-9549-924106d5237d)
+
+##Product Page
+![Product Page](https://github.com/heyyrahul/python-magician-6789/assets/79692865/a1d6ec4f-7dd1-46ab-a703-e4a071d32faa)
+##Users/Traffic page
+![Users _ Traffic](https://github.com/heyyrahul/python-magician-6789/assets/79692865/08b8085b-c583-40e9-a3ff-fe769393fc94)
