@@ -9,7 +9,7 @@ Epicbazaar is an innovative e-commerce platform designed to revolutionize online
 - **Frontend**
 
 ## Deployed App
-**Link:** => [Epicbazaar](https://epicbazaar.vercel.app/)
+ [Epicbazaar](https://epicbazaar.vercel.app/)
 
 ## Directory Structure
 
@@ -22,7 +22,9 @@ my-app/
 
 ## Video Walkthrough
 
-- **Features Walkthrough:** [1-3 minutes video link]
+- **Features Walkthrough:** 
+[![Video Walkthrough](https://img.youtube.com/vi/OOLyLElvnFA/0.jpg)](https://www.youtube.com/watch?v=OOLyLElvnFA)
+
 - **Codebase Walkthrough:** [1-5 minutes video link]
 
 ## Features
