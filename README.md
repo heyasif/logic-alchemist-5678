@@ -22,8 +22,11 @@ my-app/
 
 ## Video Walkthrough
 
-- **Features Walkthrough:** 
-https://github.com/underiya/TravelBee/assets/79692865/4545c25b-91ce-4b99-9656-74a6b02c73bf
+
+https://github.com/heyasif/logic-alchemist-5678/assets/79692865/e108bc9a-987e-46ae-b35e-22ee7a662abc.mp4
+
+
+
 
 
 
