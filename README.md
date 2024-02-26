@@ -14,9 +14,34 @@ Epicbazaar is an innovative e-commerce platform designed to revolutionize online
 ## Directory Structure
 
 my-app/
-├─ backend/
-├─ frontend/
-│ ├─ ...
+├─ src/
+│  ├─ App.css
+│  ├─ App.js
+│  ├─ index.css
+│  ├─ index.js
+│  ├─ PrivateRoute.jsx
+│  ├─ Assets/
+│  │  └─ Screenshots/
+│  ├─ Components/
+│  │  ├─ Card/
+│  │  ├─ Container/
+│  │  ├─ Footer/
+│  │  ├─ Navbar/
+│  │  ├─ Orders/
+│  │  ├─ Payment/
+│  │  ├─ Profile/
+│  │  └─ Spinner/
+│  ├─ Config/
+│  ├─ Context/
+│  └─ Pages/
+│     ├─ Auth/
+│     ├─ Cart/
+│     ├─ Error404/
+│     ├─ Favorites/
+│     ├─ ProductDetail/
+│     └─ Products/
+└─ ProtectedRoute.js
+
 
 
 
