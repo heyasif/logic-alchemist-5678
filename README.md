@@ -12,7 +12,7 @@ Epicbazaar is an innovative e-commerce platform designed to revolutionize online
  [Epicbazaar](https://epicbazaar.vercel.app/)
 
 ## Directory Structure
-
+```
 my-app/
 ├─ src/
 │  ├─ App.css
@@ -41,8 +41,7 @@ my-app/
 │     ├─ ProductDetail/
 │     └─ Products/
 └─ ProtectedRoute.js
-
-
+```
 
 
 ## Video Walkthrough
