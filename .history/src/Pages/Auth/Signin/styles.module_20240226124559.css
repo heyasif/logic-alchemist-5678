@@ -119,7 +119,7 @@
   z-index: 1000; /* Ensure this is higher than other elements */
 }
 .formGroup {
-  width: 40%; /* Adjust this value as needed */
+  width: 60%; /* Adjust this value as needed */
   max-width: 800px; /* Or whatever maximum width you prefer */
   margin: auto; /* Center the container */
 }
