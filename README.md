@@ -23,7 +23,9 @@ my-app/
 ## Video Walkthrough
 
 - **Features Walkthrough:** 
-[![Video Walkthrough](https://img.youtube.com/vi/OOLyLElvnFA/0.jpg)](https://www.youtube.com/watch?v=OOLyLElvnFA)
+https://github.com/underiya/TravelBee/assets/79692865/4545c25b-91ce-4b99-9656-74a6b02c73bf
+
+
 
 - **Codebase Walkthrough:** [1-5 minutes video link]
 
@@ -104,7 +106,7 @@ If your application relies on external APIs, document them and include any neces
 ![Users _ Traffic](https://github.com/heyyrahul/python-magician-6789/assets/79692865/08b8085b-c583-40e9-a3ff-fe769393fc94)
 
 ## Contributors
-## [Md. Asif](https://epicbazaar.vercel.app/)
+## [Md. Asif](https://www.linkedin.com/in/hellomohdasif/)
 ## [Rahul Kumar](https://epicbazaar.vercel.app/)
 ## [Rantu Bangal](https://www.linkedin.com/in/rantu-bangal/)
 ## [Sujeet Kumar](https://www.linkedin.com/in/sujeet-kumar-2b4750195/)
